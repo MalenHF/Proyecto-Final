@@ -17,8 +17,8 @@ namespace Proyecto_Final.Controllers
         {
             return View();
         }
-
-        public IActionResult Privacy()
+            
+        public IActionResult Informacion()
         {
             return View();
         }

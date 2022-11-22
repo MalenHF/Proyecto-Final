@@ -1,40 +1,39 @@
-﻿@model Proyecto_Final.Models.dbModels.Noticia
-
+﻿@model Proyecto_Final.Models.DTO.NoticiaCreateDTO
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Agregar Noticia</h1>
 
 <h4>Noticia</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form enctype="multipart/form-data" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="IdUsuario" class="control-label"></label>
                 <select asp-for="IdUsuario" class ="form-control" asp-items="ViewBag.IdUsuario"></select>
             </div>
             <div class="form-group">
-                <label asp-for="TituloNoticia" class="control-label"></label>
-                <input asp-for="TituloNoticia" class="form-control" />
-                <span asp-validation-for="TituloNoticia" class="text-danger"></span>
+                <label asp-for="tituloNoticia" class="control-label">Titulo</label>
+                <input asp-for="tituloNoticia" class="form-control" />
+                <span asp-validation-for="tituloNoticia" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ContenidoNoticia" class="control-label"></label>
-                <input asp-for="ContenidoNoticia" class="form-control" />
-                <span asp-validation-for="ContenidoNoticia" class="text-danger"></span>
+                <label asp-for="contenidoNoticia" class="control-label">Contenido de la Noticia</label>
+                <input asp-for="contenidoNoticia" class="form-control" />
+                <span asp-validation-for="contenidoNoticia" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="NoticiaStatus" /> @Html.DisplayNameFor(model => model.NoticiaStatus)
+                    <input class="form-check-input" asp-for="noticiaStatus" /> @Html.DisplayNameFor(model => model.noticiaStatus)
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="FechaNoticia" class="control-label"></label>
-                <input asp-for="FechaNoticia" class="form-control" />
-                <span asp-validation-for="FechaNoticia" class="text-danger"></span>
+                <label asp-for="fechaNoticia" class="control-label"></label>
+                <input asp-for="fechaNoticia" class="form-control" />
+                <span asp-validation-for="fechaNoticia" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Foto" class="control-label"></label>
@@ -42,14 +41,19 @@
                 <span asp-validation-for="Foto" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label asp-for="FotoFile" class="control-label">Foto de la Noticia</label>
+                <input asp-for="FotoFile" class="form-control" />
+                <span asp-validation-for="FotoFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Cancelar</a>
 </div>
 
 @section Scripts {

@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Proyecto_Final.Models.dbModels;
+using Proyecto_Final.Models.DTO;
 
 namespace Proyecto_Final.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class NoticiasController : Controller
     {
         private readonly ProyectoFinalContext _context;
@@ -56,11 +60,20 @@ namespace Proyecto_Final.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdNoticia,IdUsuario,TituloNoticia,ContenidoNoticia,NoticiaStatus,FechaNoticia,Foto")] Noticia noticia)
+        public async Task<IActionResult> Create(NoticiaCreateDTO noticia)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(noticia);
+                Noticia n = new Noticia
+                {
+                    IdUsuario = noticia.IdUsuario,
+                    TituloNoticia = noticia.tituloNoticia,
+                    ContenidoNoticia = noticia.contenidoNoticia,
+                    NoticiaStatus = noticia.noticiaStatus,
+                    FechaNoticia = noticia.fechaNoticia,
+                    Foto = noticia.Foto
+                };
+                _context.Add(n);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

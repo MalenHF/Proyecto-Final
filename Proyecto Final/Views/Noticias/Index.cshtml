@@ -7,6 +7,42 @@
 <h1>Index</h1>
 
 <p>
+    <a asp-action="Create">Crear Noticias</a>
+</p>
+<div class="card col-6">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Noticias Del Servidor
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a class="h3 mb-0" asp-action="Details" asp-route-id="@item.IdNoticia">@Html.DisplayNameFor(model => model.TituloNoticia)</a>
+
+                        @Html.DisplayFor(modelItem => item.NoticiaStatus)
+
+                        <p class="fs-6 text-muted mb-0">@Html.DisplayFor(modelItem => item.FechaNoticia)</p>
+                    </td>
+                    <td class="text-center col">
+                        <a asp-action="Edit" asp-route-id="@item.IdNoticia">Aprobar</a> |
+                        <a asp-action="Edit" asp-route-id="@item.IdNoticia">Editar</a> |
+                        <a asp-action="Delete" asp-route-id="@item.IdNoticia">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<p>
     <a asp-action="Create">Create New</a>
 </p>
 <table class="table">

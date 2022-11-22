@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Proyecto_Final.Models.dbModels.Evento>
 
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -24,10 +25,10 @@
             {
                 <tr>
                     <td>
-                        <a class="h3 mb-0"  asp-action="Details" asp-route-id="@item.IdEvento">@Html.DisplayFor(modelItem => item.TituloEvento)</a>
+                        <a class="h3 mb-0" asp-action="Details" asp-route-id="@item.IdEvento">@Html.DisplayFor(modelItem => item.TituloEvento)</a>
 
                         @Html.DisplayFor(modelItem => item.EstatusEvento)
-   
+
                         <p class="fs-6 text-muted mb-0">@Html.DisplayFor(modelItem => item.FechaEvento)</p>
                     </td>
                     <td class="text-center col">
@@ -40,4 +41,3 @@
         </tbody>
     </table>
 </div>
-
