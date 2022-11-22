@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Proyecto_Final.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="./css/inico.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
@@ -42,8 +46,62 @@
                 </div>
             </div>
         </nav>
+
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow m-0 p-2 ">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> <img src="img/hfLogo.png" alt="" height="62" width="65" class="rounded-circle"></a>
+               
+                <a class="navbar-brand mx-auto" asp-area="" asp-controller="Home" asp-action="Index">
+                    <b class="h2">Hooligan Force</b>
+                </a>
+                <partial name="_LoginPartial" />
+            </div>
+
+        </nav>
+        <div class="navbar-collapse p-0 m-0" id="navbarSupportedContent">
+            <ul class="navbar d-flex estiloNav p-0 mb-0 col-auto">
+
+                <oi class="nav-item text-center m-0 ms-auto me-auto mb-auto">
+                    <a class="nav-link" aria-current="page" href="./Inicio.html">
+                        <div>
+                            <i class="text-center fa-solid fa-newspaper "></i>
+                        </div>
+                        Noticias
+                    </a>
+                </oi>
+
+                <ol class="nav-item text-center ms-auto me-auto mb-auto">
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">
+
+                        <div>
+                            <i class="fa-solid fa-circle-info"></i>
+                        </div>
+                        Informacion
+                    </a>
+                </ol>
+
+                <ol class="nav-item text-center ms-auto me-auto mb-auto">
+                    <a class="nav-link" aria-disabled="true" href="./Perfil.html">
+                        <div>
+                            <i class="fa-regular fa-image"></i>
+                        </div>
+                        Galeria
+                    </a>
+                </ol>
+                <ol class="nav-item text-center ms-auto me-auto mb-auto">
+                    <a class="nav-link" aria-disabled="true" href="./Perfil.html">
+                        <div>
+                            <i class="fa-solid fa-check-to-slot"></i>
+                        </div>
+                        Votacion
+                    </a>
+                </ol>
+            </ul>
+           
+        </div>
     </header>
-    <div class="container">
+
+    <div class="">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
