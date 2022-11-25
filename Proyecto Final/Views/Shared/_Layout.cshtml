@@ -22,19 +22,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="EventosYNoticias" asp-action="Index">Noticias Y Eventos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Informacion">Información</a>
-                        </li>                        
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Publicaciones" asp-action="Index">Galerias</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Votaciones" asp-action="Index">Votaciones</a>
-                        </li>
+                    <ul class="navbar-nav flex-grow-1">                        
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Noticias" asp-action="Index">Not</a>
                         </li>
@@ -62,17 +50,16 @@
             <ul class="navbar d-flex estiloNav p-0 mb-0 col-auto">
 
                 <oi class="nav-item text-center m-0 ms-auto me-auto mb-auto">
-                    <a class="nav-link" aria-current="page" href="./Inicio.html">
+                    <a class="nav-link" aria-current="page" asp-controller="EventosYNoticias" asp-action="Index">
                         <div>
                             <i class="text-center fa-solid fa-newspaper "></i>
                         </div>
-                        Noticias
+                        Noticias y Eventos
                     </a>
                 </oi>
 
                 <ol class="nav-item text-center ms-auto me-auto mb-auto">
-                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">
-
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Informacion">
                         <div>
                             <i class="fa-solid fa-circle-info"></i>
                         </div>
@@ -81,7 +68,7 @@
                 </ol>
 
                 <ol class="nav-item text-center ms-auto me-auto mb-auto">
-                    <a class="nav-link" aria-disabled="true" href="./Perfil.html">
+                    <a class="nav-link" aria-disabled="true" asp-controller="Publicaciones" asp-action="Index">
                         <div>
                             <i class="fa-regular fa-image"></i>
                         </div>
@@ -89,7 +76,7 @@
                     </a>
                 </ol>
                 <ol class="nav-item text-center ms-auto me-auto mb-auto">
-                    <a class="nav-link" aria-disabled="true" href="./Perfil.html">
+                    <a class="nav-link" aria-disabled="true" asp-controller="Votaciones" asp-action="Index">
                         <div>
                             <i class="fa-solid fa-check-to-slot"></i>
                         </div>
