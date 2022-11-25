@@ -20,22 +20,12 @@
                 <label asp-for="FotoPath" class="control-label"></label>
                 <input asp-for="FotoPath" class="form-control" />
                 <span asp-validation-for="FotoPath" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Estatus" /> @Html.DisplayNameFor(model => model.Estatus)
-                </label>
-            </div>
+            </div>            
             <div class="form-group">
                 <label asp-for="Titulo" class="control-label"></label>
                 <input asp-for="Titulo" class="form-control" />
                 <span asp-validation-for="Titulo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaPublicacion" class="control-label"></label>
-                <input asp-for="FechaPublicacion" class="form-control" />
-                <span asp-validation-for="FechaPublicacion" class="text-danger"></span>
-            </div>
+            </div>            
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

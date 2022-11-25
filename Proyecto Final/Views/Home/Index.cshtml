@@ -18,20 +18,12 @@
                 @foreach(Noticia noticia in Model.lstNoticia){
                     <li>
                         <div>
-                            <a class="h3 mb-0" asp-controller="Noticias" asp-action="Details" asp-route-id="@noticia.IdNoticia">@Html.DisplayFor(Model => noticia.TituloNoticia)</a>
-
-                            @Html.DisplayFor(modelItem => noticia.NoticiaStatus)
-
+                            <a class="h5 mb-0 nav-link" asp-controller="Noticias" asp-action="Details" asp-route-id="@noticia.IdNoticia">@Html.DisplayFor(Model => noticia.TituloNoticia)</a>
                             <p class="fs-6 text-muted mb-0">@Html.DisplayFor(modelItem => noticia.FechaNoticia)</p>
                         </div>
-
+                        <hr class="m-1">
                     </li>
-                }
-                <li>noticia</li>
-                <li>noticia</li>
-                <li>noticia</li>
-                <li>noticia</li>
-                <li>noticia</li>
+                }                
             </ul>
         </div>
     </div>
@@ -39,13 +31,18 @@
         <div class="card-header border-2">
             <h4>Eventos</h4>
         </div>
-        <div id="eventos" class="card-body conteiner text-start">
+        <div id="eventos" class="card-body conteiner text-start py-1">
             <ul>
-                <li>Eventos</li>
-                <li>Eventos</li>
-                <li>Eventos</li>
-                <li>Eventos</li>
-                <li>Eventos</li>
+                @foreach (Evento evento in Model.lstEventos)
+                {
+                        <li>
+                            <div>
+                            <a class="h5 mb-0 nav-link" asp-controller="Eventos" asp-action="Details" asp-route-id="@evento.IdEvento">@Html.DisplayFor(Model => evento.TituloEvento)</a>
+                                <p class="fs-6 text-muted mb-0">@Html.DisplayFor(modelItem => evento.FechaEvento)</p>
+                            </div>
+                            <hr class="m-1">
+                        </li>
+                }
             </ul>
         </div>
 
@@ -53,22 +50,13 @@
     </div>
 </div>
 
-
 <div id="divMiniGal" class="row cards d-flex col-sm-11 col-md-9 col-lg-8 ms-auto me-auto text-center imgEstilo">
+    @foreach(Publicacione publicacione in Model.lstPublicaciones){
 
-    <div class="card card-body text-center d-flex col-sm-5 col-md-5 col-lg-2 imgBorde">
-        <img src="./img/imgTest.png" class="imgConte" alt="...">
-    </div>
-    <div class="card card-body text-center d-flex col-sm-5 col-md-5 col-lg-2 imgBorde">
-        <img src="./img/imgTest.png" class="imgConte" alt="...">
-    </div>
-    <div class="card card-body text-center d-flex col-sm-5 col-md-5 col-lg-2 imgBorde">
-        <img src="./img/imgTest.png" class="imgConte" alt="...">
-    </div>
-    <div class="card card-body text-center d-flex col-sm-5 col-md-5 col-lg-2 imgBorde ">
-        <img src="./img/imgTest.png" class=" imgConte" alt="...">
-    </div>
-
+        <a class="card card-body text-center d-flex col-sm-5 col-md-5 col-lg-2 imgBorde" asp-controller="Publicaciones" asp-action="Details" asp-route-id="@publicacione.PublicacionId">
+            <img src=@Html.DisplayFor(modelItem => publicacione.FotoPath) alt="...">            
+        </a>
+    }
 
 </div>
 <div class=" card card-body container col-sm-11 col-md-9 col-lg-8 p-0">

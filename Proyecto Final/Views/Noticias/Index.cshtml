@@ -24,7 +24,7 @@
             {
                 <tr>
                     <td>
-                        <a class="h3 mb-0" asp-action="Details" asp-route-id="@item.IdNoticia">@Html.DisplayNameFor(model => model.TituloNoticia)</a>
+                        <a class="h3 mb-0" asp-action="Details" asp-route-id="@item.IdNoticia">@Html.DisplayFor(modelItem => item.TituloNoticia)</a>
 
                         @Html.DisplayFor(modelItem => item.NoticiaStatus)
 
@@ -42,10 +42,7 @@
 </div>
 
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<table class="table bg-white mt-3">
     <thead>
         <tr>
             <th>

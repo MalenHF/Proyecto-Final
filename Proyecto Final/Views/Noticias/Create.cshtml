@@ -25,26 +25,11 @@
                 <input asp-for="contenidoNoticia" class="form-control" />
                 <span asp-validation-for="contenidoNoticia" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="noticiaStatus" /> @Html.DisplayNameFor(model => model.noticiaStatus)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="fechaNoticia" class="control-label"></label>
-                <input asp-for="fechaNoticia" class="form-control" />
-                <span asp-validation-for="fechaNoticia" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <label asp-for="Foto" class="control-label"></label>
                 <input asp-for="Foto" class="form-control" />
                 <span asp-validation-for="Foto" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FotoFile" class="control-label">Foto de la Noticia</label>
-                <input asp-for="FotoFile" class="form-control" />
-                <span asp-validation-for="FotoFile" class="text-danger"></span>
-            </div>
+            </div>            
             <div class="form-group">
                 <input type="submit" value="Crear" class="btn btn-primary" />
             </div>

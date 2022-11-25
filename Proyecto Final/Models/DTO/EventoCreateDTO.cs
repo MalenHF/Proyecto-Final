@@ -19,6 +19,6 @@ namespace Proyecto_Final.Models.DTO
         public DateTime FechaEvento { get; set; }
         [Column("foto")]
         public string? Foto { get; set; }
-        public IFormFile? FotoFile { get; set; }
+        //public IFormFile? FotoFile { get; set; }
     }
 }

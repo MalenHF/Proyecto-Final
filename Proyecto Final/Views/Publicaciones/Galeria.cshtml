@@ -1,20 +1,17 @@
-﻿@model IEnumerable<Proyecto_Final.Models.dbModels.Publicacione>
+﻿@model IndexViewModel
 
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<div class=" card container col p-0 ">
+    <img src="~/img/banertest2.jpg" class="img-fluid banerEstilo" alt="...">
+</div>
 <div class="container card p-0">
     <div class="card-header text-center">
         <h4>Galerias</h4>
     </div>
     <div id="divMiniGal" class="row d-flex text-center imgEstilo card-body py-2">
-        @foreach (var item in Model)
+        @foreach (var item in Model.lstPublicaciones)
 {
             <div class="col-sm-5 col-md-5 col-lg-3 p-0">
                 <a class="card text-center imgBorde" asp-action="Details" asp-route-id="@item.PublicacionId">
@@ -23,19 +20,22 @@
                         <h5>@Html.DisplayFor(modelItem => item.Titulo)</h5>                        
                     </div>
                 </a>
-                <div class="col-12">
-                    @Html.DisplayFor(modelItem => item.Estatus) |
-                    <a class="btn btn-primary col-5" asp-action="Edit" asp-route-id="@item.PublicacionId">Editar</a> |
-                    
-                    <a class="btn btn-danger col-5" asp-action="Delete" asp-route-id="@item.PublicacionId">Borrar</a>
-                </div>
+                @*<div class="col-12">z
+                    <a asp-action="Edit" asp-route-id="@item.PublicacionId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.PublicacionId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PublicacionId">Delete</a>
+                </div>*@
              </div>
              
 }        
     </div>
     <div class="card-footer text-center">        
-        <a class="btn btn-dark mx-auto" asp-action="Create">Subir Foto</a>
+        <a class="btn btn-dark mx-auto" asp-action="Create">Subir una Foto</a>
     </div>
+
+</div>
+<div class=" card container col p-0 ">
+    <img src="~/img/banertest2.jpg" class="img-fluid banerEstilo" alt="...">
 </div>
 
 

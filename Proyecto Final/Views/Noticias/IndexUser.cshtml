@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Proyecto_Final.Models.dbModels.Noticia>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="card container p-0 ">
+    <img src="~/img/banertest2.jpg" class="img-fluid banerEstilo" alt="...">
+</div>
+<div class="container">
+    <div class="row p-0">
+        <div class="card col-lg-6 col-xl-6 d-flex container p-1 m-0 imgBorde2">
+            <a class="btn txtColor" href="#" role="button">
+                <h4>Noticas</h4>
+            </a>
+        </div>
+        <div class="card col-lg-6 col-xl-6 d-flex container p-1 m-0 imgBorde2">
+            <a class="btn txtColor" role="button" asp-controller="Eventos" asp-action="IndexUser">
+                <h4>Eventos</h4>
+            </a>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="card card-body conteBorde text-white">
+                <div class="row">
+                    <a class="h5 mb-0 nav-link col-auto text-white" asp-controller="Noticias" asp-action="Details" asp-route-id="@item.IdNoticia">@Html.DisplayFor(Model => item.TituloNoticia)</a>
+                    <p class="fs-6  mb-0 col-auto ms-auto p-2">@Html.DisplayFor(modelItem => item.FechaNoticia)</p>
+                </div>
+                <hr class="m-1">
+             </div>
+            
+        }
+        
+    </div>
+</div>
+<div class=" card card-body container col p-0 ">
+    <img src="~/img/banertest2.jpg" class="img-fluid banerEstilo" alt="...">
+</div>
+
+

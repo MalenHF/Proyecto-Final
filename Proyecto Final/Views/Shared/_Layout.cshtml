@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Proyecto_Final</title>
+    <title>@ViewData["Title"] - Hooligan Force 7DTD</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Proyecto_Final.styles.css" asp-append-version="true" />
@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Proyecto_Final</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Admin Panel</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -24,10 +24,13 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Noticias" asp-action="Index">Not</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Noticias" asp-action="Index">Panel de Noticias</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Eventos" asp-action="Index">Evt</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Eventos" asp-action="Index">Panel de Eventos</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark" aria-disabled="true" asp-controller="Publicaciones" asp-action="Index">Panel de Galeria</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -37,12 +40,16 @@
 
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow m-0 p-2 ">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> <img src="~/img/hfLogo.png" alt="" height="62" width="65" class="rounded-circle"></a>
+                
+                <a class="navbar-brand col-3" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/hfLogo.png" alt="" height="62" width="65" class="rounded-circle imgPerfil"></a>
                
                 <a class="navbar-brand mx-auto" asp-area="" asp-controller="Home" asp-action="Index">
-                    <b class="h2">Hooligan Force</b>
+                    <b class="h2 tituloHF">Hooligan Force</b>
                 </a>
-                <partial name="_LoginPartial" />
+                <div class="col-3 d-flex flex-row-reverse">
+                    <partial name="_LoginPartial" />
+                </div>
+                
             </div>
 
         </nav>
@@ -50,7 +57,7 @@
             <ul class="navbar d-flex estiloNav p-0 mb-0 col-auto">
 
                 <oi class="nav-item text-center m-0 ms-auto me-auto mb-auto">
-                    <a class="nav-link" aria-current="page" asp-controller="EventosYNoticias" asp-action="Index">
+                    <a class="nav-link" aria-current="page" asp-controller="Noticias" asp-action="IndexUser">
                         <div>
                             <i class="text-center fa-solid fa-newspaper "></i>
                         </div>
@@ -58,37 +65,37 @@
                     </a>
                 </oi>
 
-                <ol class="nav-item text-center ms-auto me-auto mb-auto">
+                <oi class="nav-item text-center ms-auto me-auto mb-auto">
                     <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Informacion">
                         <div>
                             <i class="fa-solid fa-circle-info"></i>
                         </div>
                         Informacion
                     </a>
-                </ol>
+                </oi>
 
-                <ol class="nav-item text-center ms-auto me-auto mb-auto">
-                    <a class="nav-link" aria-disabled="true" asp-controller="Publicaciones" asp-action="Index">
+                <oi class="nav-item text-center ms-auto me-auto mb-auto">
+                    <a class="nav-link" aria-disabled="true" asp-controller="Publicaciones" asp-action="Galeria">
                         <div>
                             <i class="fa-regular fa-image"></i>
                         </div>
                         Galeria
                     </a>
-                </ol>
-                <ol class="nav-item text-center ms-auto me-auto mb-auto">
+                </oi>
+                <oi class="nav-item text-center ms-auto me-auto mb-auto">
                     <a class="nav-link" aria-disabled="true" asp-controller="Votaciones" asp-action="Index">
                         <div>
                             <i class="fa-solid fa-check-to-slot"></i>
                         </div>
                         Votacion
                     </a>
-                </ol>
+                </oi>
             </ul>
            
         </div>
     </header>
 
-    <div class="">
+    <div class="min-vh-100">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

@@ -25,7 +25,12 @@ namespace Proyecto_Final.Controllers
         // GET: Noticias
         public async Task<IActionResult> Index()
         {
-            var proyectoFinalContext = _context.Noticias.Include(n => n.IdUsuarioNavigation);
+            var proyectoFinalContext = _context.Noticias.Include(n => n.IdUsuarioNavigation).OrderByDescending(x => x.FechaNoticia);
+            return View(await proyectoFinalContext.ToListAsync());
+        }
+        public async Task<IActionResult> IndexUser()
+        {
+            var proyectoFinalContext = _context.Noticias.OrderByDescending(x => x.FechaNoticia).Where(x => x.NoticiaStatus == true);
             return View(await proyectoFinalContext.ToListAsync());
         }
 
@@ -70,7 +75,7 @@ namespace Proyecto_Final.Controllers
                     TituloNoticia = noticia.tituloNoticia,
                     ContenidoNoticia = noticia.contenidoNoticia,
                     NoticiaStatus = noticia.noticiaStatus,
-                    FechaNoticia = noticia.fechaNoticia,
+                    FechaNoticia = DateTime.Now,
                     Foto = noticia.Foto
                 };
                 _context.Add(n);

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Proyecto_Final.Models.dbModels;
 using Proyecto_Final.Models.DTO;
+using Proyecto_Final.ViewModels;
 
 namespace Proyecto_Final.Controllers
 {
@@ -24,6 +25,14 @@ namespace Proyecto_Final.Controllers
         {
             var proyectoFinalContext = _context.Publicaciones.Include(p => p.IdUsuarioNavigation);
             return View(await proyectoFinalContext.ToListAsync());
+        }
+
+
+        public IActionResult Galeria()
+        {
+            IndexViewModel ivm = new IndexViewModel();
+            ivm.lstPublicaciones = _context.Publicaciones.Where(x => x.Estatus == true).OrderByDescending(x => x.FechaPublicacion).ToList();            
+            return View(ivm);
         }
 
         // GET: Publicaciones/Details/5
@@ -68,7 +77,7 @@ namespace Proyecto_Final.Controllers
                     FotoPath = publicacione.FotoPath,
                     Titulo = publicacione.Titulo,
                     Estatus = publicacione.Estatus,
-                    FechaPublicacion = publicacione.FechaPublicacion
+                    FechaPublicacion = DateTime.Now
                 };
                 _context.Add(p);
                 await _context.SaveChangesAsync();
@@ -94,6 +103,7 @@ namespace Proyecto_Final.Controllers
             ViewData["IdUsuario"] = new SelectList(_context.Users, "Id", "Id", publicacione.IdUsuario);
             return View(publicacione);
         }
+       
 
         // POST: Publicaciones/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.

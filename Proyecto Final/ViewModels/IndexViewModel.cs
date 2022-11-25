@@ -7,5 +7,7 @@ namespace Proyecto_Final.ViewModels
         public List<Evento> lstEventos { get; set; }
 
         public List<Noticia> lstNoticia { get; set; }
+
+        public List<Publicacione> lstPublicaciones { get; set; }
     }
 }

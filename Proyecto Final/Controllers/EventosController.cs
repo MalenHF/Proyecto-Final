@@ -8,10 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Proyecto_Final.Models.dbModels;
 using Proyecto_Final.Models.DTO;
+using Proyecto_Final.ViewModels;
 
 namespace Proyecto_Final.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    
     public class EventosController : Controller
     {
         private readonly ProyectoFinalContext _context;
@@ -24,8 +25,13 @@ namespace Proyecto_Final.Controllers
         // GET: Eventos
         public async Task<IActionResult> Index()
         {
-            var proyectoFinalContext = _context.Eventos.Include(e => e.IdUsuarioNavigation);
+            var proyectoFinalContext = _context.Eventos.Include(e => e.IdUsuarioNavigation).OrderByDescending(x => x.FechaEvento);
             return View(await proyectoFinalContext.ToListAsync());
+        }
+        public async Task<IActionResult> IndexUser()
+        {
+            var proyectoFinalContext = _context.Eventos.OrderByDescending(x => x.FechaEvento).Where(x => x.EstatusEvento == true);
+            return View(await proyectoFinalContext.ToListAsync());           
         }
 
         public async Task<IActionResult> ultimosEventos()
@@ -34,7 +40,7 @@ namespace Proyecto_Final.Controllers
             return View(await eventos.ToListAsync());
         }
 
-        // GET: Eventos/Details/5
+        // GET: Eventos/Details/5f
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Eventos == null)
@@ -65,8 +71,10 @@ namespace Proyecto_Final.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(EventoCreateDTO evento)
         {
+            
             if (ModelState.IsValid)
             {
                 Evento e = new Evento
@@ -75,7 +83,7 @@ namespace Proyecto_Final.Controllers
                     TituloEvento = evento.TituloEvento,
                     ContenidoEvento = evento.ContenidoEvento,
                     EstatusEvento = evento.EstatusEvento,
-                    FechaEvento = evento.FechaEvento,
+                    FechaEvento = DateTime.Now,
                     Foto = evento.Foto
                 };
                 _context.Add(e);
@@ -108,6 +116,7 @@ namespace Proyecto_Final.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, [Bind("IdEvento,IdUsuario,TituloEvento,ContenidoEvento,EstatusEvento,FechaEvento,Foto")] Evento evento)
         {
             if (id != evento.IdEvento)
@@ -140,6 +149,7 @@ namespace Proyecto_Final.Controllers
         }
 
         // GET: Eventos/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Eventos == null)
@@ -161,6 +171,7 @@ namespace Proyecto_Final.Controllers
         // POST: Eventos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Eventos == null)
