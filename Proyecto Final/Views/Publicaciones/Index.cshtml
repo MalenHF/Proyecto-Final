@@ -32,9 +32,25 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
+
+            <a asp-action="Details" asp-route-id="@item.PublicacionId">Details</a>
+    <div class="card col-4">
+        <div class="card-header text-center">
+                    <h5>@Html.DisplayFor(modelItem => item.Titulo)</h5>
+        </div>
+        <div clas="card-body">
+                    <img src=@Html.DisplayFor(modelItem => item.FotoPath)>
+                </div>
+        <div class="card-footer row">
+                    <b class="col-4">Por: @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.Nombre)</b>
+                    <div class="col-1">@Html.DisplayFor(modelItem => item.Estatus)</div>
+                    <p class="text-muted col">@Html.DisplayFor(modelItem => item.FechaPublicacion)</p>
+                    
+        </div>
+    </div>
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.FotoPath)
+                 <img src=@Html.DisplayFor(modelItem => item.FotoPath)>                
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Estatus)
