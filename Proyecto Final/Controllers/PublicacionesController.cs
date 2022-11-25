@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Proyecto_Final.Models.dbModels;
+using Proyecto_Final.Models.DTO;
 
 namespace Proyecto_Final.Controllers
 {
@@ -56,11 +57,20 @@ namespace Proyecto_Final.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PublicacionId,IdUsuario,FotoPath,Estatus,Titulo,FechaPublicacion")] Publicacione publicacione)
+        public async Task<IActionResult> Create(PublicacioneCreateDTO publicacione)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(publicacione);
+                Publicacione p = new Publicacione
+                {
+                    PublicacionId = publicacione.PublicacionId,
+                    IdUsuario = publicacione.IdUsuario,
+                    FotoPath = publicacione.FotoPath,
+                    Titulo = publicacione.Titulo,
+                    Estatus = publicacione.Estatus,
+                    FechaPublicacion = publicacione.FechaPublicacion
+                };
+                _context.Add(p);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

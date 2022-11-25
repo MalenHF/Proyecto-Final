@@ -28,6 +28,12 @@ namespace Proyecto_Final.Controllers
             return View(await proyectoFinalContext.ToListAsync());
         }
 
+        public async Task<IActionResult> ultimosEventos()
+        {
+            var eventos = _context.Eventos.OrderByDescending(x => x.FechaEvento).Take(5);
+            return View(await eventos.ToListAsync());
+        }
+
         // GET: Eventos/Details/5
         public async Task<IActionResult> Details(int? id)
         {

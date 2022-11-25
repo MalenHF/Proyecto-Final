@@ -1,6 +1,8 @@
-﻿@{
+﻿@model IndexViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
+
 
 <div class=" card card-body container col-sm-11 col-md-9 col-lg-8 p-0 ">
     <img src="./img/banerTest.jpg" class="img-fluid banerEstilo" alt="...">
@@ -13,6 +15,18 @@
         </div>
         <div id="noticias" class="card-body conteiner text-start">
             <ul>
+                @foreach(Noticia noticia in Model.lstNoticia){
+                    <li>
+                        <div>
+                            <a class="h3 mb-0" asp-controller="Noticias" asp-action="Details" asp-route-id="@noticia.IdNoticia">@Html.DisplayFor(Model => noticia.TituloNoticia)</a>
+
+                            @Html.DisplayFor(modelItem => noticia.NoticiaStatus)
+
+                            <p class="fs-6 text-muted mb-0">@Html.DisplayFor(modelItem => noticia.FechaNoticia)</p>
+                        </div>
+
+                    </li>
+                }
                 <li>noticia</li>
                 <li>noticia</li>
                 <li>noticia</li>
