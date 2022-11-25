@@ -1,0 +1,23 @@
+[33mcommit 77e094a3d73663db011bc3d5fb4d4a53ccc04dfa[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Angel Ruiz <angel.ruiz08xd@gmail.com>
+Date:   Tue Nov 22 05:02:38 2022 -0600
+
+    Agregado estilo basico de paginas
+
+[33mcommit 2358b6b9adc551b4eea819060c676cea30b1efc5[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Jesus Ruiz <alex.malen@gmail.com>
+Date:   Mon Nov 21 20:40:23 2022 -0600
+
+    subidos controladores y respaldo de DB
+
+[33mcommit e3ed3ae9fdd31cddba7fb6cf77471c7d2518983c[m
+Author: Ma9628531@@ <alex.malen@gmail.com>
+Date:   Thu Nov 3 05:29:10 2022 -0600
+
+    Agregar archivos de proyecto.
+
+[33mcommit 884767fd3983a9368dc09b13eb9e435dfc53446f[m
+Author: Ma9628531@@ <alex.malen@gmail.com>
+Date:   Thu Nov 3 05:29:07 2022 -0600
+
+    Agregar .gitattributes y .gitignore.

@@ -1,0 +1,43 @@
+img.d-block {    
+  height: 50vh;
+  max-width: 125vh;
+  margin: auto;
+}
+#carouselExampleIndicators{
+  height: 50vh;
+  max-width: 125vh;
+  margin: auto;
+}
+@media (min-width: 768px){
+  img.d-block {    
+    height: 75vh;
+  }
+  #carouselExampleIndicators{
+    height: 75vh;    
+  }
+}
+.bgNavCostume{
+  background-color: rgba(7, 7, 7, 0.568);
+}
+.dEncabezado{
+  color: rgb(190, 8, 8);
+  background-color: black;
+}
+body{
+  background-color: rgb(187, 187, 187);
+  max-width: auto;
+}
+ul{
+  list-style-type: none;
+}
+footer{
+  text-align: right;
+}
+footer p{  
+  margin: 0%;
+}
+.btn-success{
+  background-color: rgb(14, 126, 57);
+}
+
+
