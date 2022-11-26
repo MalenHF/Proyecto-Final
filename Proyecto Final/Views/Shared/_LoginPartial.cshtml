@@ -3,7 +3,7 @@
 @inject UserManager<AplicationUser> UserManager
 
 <ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
+@if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
 {
     <li class="nav-item">
             <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><b>Bienvenido @User.Identity?.Name!</b></a>
