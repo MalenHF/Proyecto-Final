@@ -8,7 +8,7 @@
 <h1 class="text-center">Panel de Galerias</h1>
 
 <p class="text-center">
-    <a asp-action="Create" class="btn btn-primary">Nueva Galeriaw</a>
+    <a asp-action="Create" class="btn btn-primary">Nueva Galeria</a>
 </p>
 <div class="container card p-0">
     <div class="card-header text-center">
@@ -20,7 +20,7 @@
             <div class="col-sm-5 col-md-5 col-lg-3 p-0">
                 <a class="card text-center imgBorde" asp-action="Details" asp-route-id="@item.PublicacionId">
                     <img src=@Html.DisplayFor(modelItem => item.FotoPath) alt="...">
-                    <div class="card-body p-2 divClas">
+                    <div class="card-body p-2 divClas text-white">
                         <h5>@Html.DisplayFor(modelItem => item.Titulo)</h5>                        
                     </div>
                 </a>

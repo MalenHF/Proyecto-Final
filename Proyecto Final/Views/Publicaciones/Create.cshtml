@@ -4,19 +4,16 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>Publicacione</h4>
 <hr />
+<h1 class="text-center">Crear Galeria</h1>
+<hr />
+
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6 card mx-auto">
         <partial name="_AdminPubCreateButtons"/>        
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

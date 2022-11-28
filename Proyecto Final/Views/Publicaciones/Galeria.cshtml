@@ -4,19 +4,20 @@
     ViewData["Title"] = "Index";
 }
 <div class=" card container col p-0 ">
-    <img src="~/img/banertest2.jpg" class="img-fluid banerEstilo" alt="...">
+    <img src="~/img/banertest2.png" class="img-fluid banerEstilo" alt="...">
 </div>
-<div class="container card p-0">
-    <div class="card-header text-center">
-        <h4>Galerias</h4>
+<div class="container card p-0 imgBorde3">
+    <div class="card-header text-center text-white border-white border-3">
+        <h4 class="mt-1">Galerias</h4>
+        <a class="btn btn-secondary btnLogin mx-auto my-1" asp-action="Create">Subir una Foto</a>
     </div>
-    <div id="divMiniGal" class="row d-flex text-center imgEstilo card-body py-2">
+    <div id="divMiniGal" class="row d-flex text-center imgEstilo card-body py-2 ">
         @foreach (var item in Model.lstPublicaciones)
 {
             <div class="col-sm-5 col-md-5 col-lg-3 p-0">
                 <a class="card text-center imgBorde" asp-action="Details" asp-route-id="@item.PublicacionId">
                     <img src=@Html.DisplayFor(modelItem => item.FotoPath) alt="...">
-                    <div class="card-body p-2 divClas">
+                    <div class="card-body p-2 divClas text-white">
                         <h5>@Html.DisplayFor(modelItem => item.Titulo)</h5>                        
                     </div>
                 </a>
@@ -29,13 +30,13 @@
              
 }        
     </div>
-    <div class="card-footer text-center">        
-        <a class="btn btn-dark mx-auto" asp-action="Create">Subir una Foto</a>
+    <div class="card-footer text-center border-white">
+        
     </div>
 
 </div>
 <div class=" card container col p-0 ">
-    <img src="~/img/banertest2.jpg" class="img-fluid banerEstilo" alt="...">
+    <img src="~/img/banertest2.png" class="img-fluid banerEstilo" alt="...">
 </div>
 
 

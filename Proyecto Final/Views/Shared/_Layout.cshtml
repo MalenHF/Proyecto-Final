@@ -10,7 +10,7 @@
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body class="mb-3">
     <header>
        
         <partial name="_AdminPanel" />
@@ -26,76 +26,55 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-lg-inline-flex justify-content-between col-3" id="navbarNavAltMarkup">
+                <div class="navbar-collapse collapse d-lg-inline-flex justify-content-end col-3" id="navbarNavAltMarkup">
                     <partial name="_LoginPartial" />
                 </div>
                 
             </div>
 
         </nav>
-        <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-light bg-dark border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                
-                    <a class="navbar-brand col-3 m-0" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/hfLogo.png" alt="" height="62" width="65" class="rounded-circle imgPerfil"></a>
-                    <div class="col-6">
-                        <a class="navbar-brand text-center col-6 m-0" asp-area="" asp-controller="Home" asp-action="Index">
-                        <b class="h2 tituloHF">Hooligan Force</b>
-                        </a>
-                    </div>
-                    
-                    <div class="col-3">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="navbar-collapse collapse d-lg-inline-flex justify-content-between">                            
-                            <partial name="_LoginPartial" />
-                        </div>
-                    </div>                    
-                 
-                
-            </div>
-        </nav>
+
 
 
 
 
         <div class="navbar-collapse p-0 m-0" id="navbarSupportedContent">
-            <ul class="navbar d-flex estiloNav p-0 mb-0 col-auto">
+            <ul class="navbar d-flex estiloNav p-0 mb-0 col-auto" style="list-style-type: none;">
 
-                <oi class="nav-item text-center m-0 ms-auto me-auto mb-auto">
+                <li class="nav-item text-center m-0 ms-auto me-auto mb-auto">
                     <a class="nav-link" aria-current="page" asp-controller="Noticias" asp-action="IndexUser">
                         <div>
                             <i class="text-center fa-solid fa-newspaper "></i>
                         </div>
                         Noticias y Eventos
                     </a>
-                </oi>
+                </li>
 
-                <oi class="nav-item text-center ms-auto me-auto mb-auto">
+                <li class="nav-item text-center ms-auto me-auto mb-auto">
                     <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Informacion">
                         <div>
                             <i class="fa-solid fa-circle-info"></i>
                         </div>
                         Informacion
                     </a>
-                </oi>
+                </li>
 
-                <oi class="nav-item text-center ms-auto me-auto mb-auto">
+                <li class="nav-item text-center ms-auto me-auto mb-auto">
                     <a class="nav-link" aria-disabled="true" asp-controller="Publicaciones" asp-action="Galeria">
                         <div>
                             <i class="fa-regular fa-image"></i>
                         </div>
                         Galeria
                     </a>
-                </oi>
-                <oi class="nav-item text-center ms-auto me-auto mb-auto">
+                </li>
+                <li class="nav-item text-center ms-auto me-auto mb-auto">
                     <a class="nav-link" aria-disabled="true" asp-controller="Votaciones" asp-action="Index">
                         <div>
                             <i class="fa-solid fa-check-to-slot"></i>
                         </div>
                         Votacion
                     </a>
-                </oi>
+                </li>
             </ul>
            
         </div>
@@ -108,8 +87,46 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - Proyecto_Final - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="sticky-bottom d-flex container-fluid">
+            <div class="ms-auto me-3 col">
+                <b>&copy; 2022 - Proyecto_Final - Jesus y Angel Ruiz</b>
+            </div>
+            <b class="me-1">Contacto:</b>
+            <ul id="main-navbar" class="col-auto nav navbar-nav  ml-auto ms-auto flex-row ">
+                <li class="nav-item me-2 d-lg-inline-block ">
+                    <a href="mailto:alex.malen@gmail.com" class="sobre-link" title="Mail" rel="nofollow"
+                       data-bs-toggle="tooltip" data-bs-placement="top" target="_blank">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </li>
+                <li class="nav-item me-2 d-lg-inline-block">
+                    <a href="https://www.twitch.tv/malenhf" class="sobre-link" title="Mail" rel="nofollow"
+                       data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Home" target="_blank">
+
+                        <i class="fa-brands fa-twitch"></i>
+                    </a>
+                </li>
+                <li class="nav-item me-2 d-lg-inline-block">
+                    <a href="https://www.youtube.com/channel/UC6q2KfYMWQOHiEIKdKka3kw" class="sobre-link" title="Mail"
+                       rel="nofollow" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Home"
+                       target="_blank">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </li>
+                <li class="nav-item me-2 d-lg-inline-block">
+                    <a href="https://twitter.com/home" class="sobre-link" title="Mail" rel="nofollow"
+                       data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Home" target="_blank">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                </li>
+                <li class="nav-item me-2 d-lg-inline-block">
+                    <a href="https://www.facebook.com/Hooligans-Force-100837651549542" class="sobre-link" title="Mail"
+                       rel="nofollow" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Home"
+                       target="_blank">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

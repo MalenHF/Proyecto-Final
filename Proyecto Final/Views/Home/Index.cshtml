@@ -5,20 +5,21 @@
 
 
 <div class=" card card-body container col-sm-11 col-md-9 col-lg-8 p-0 ">
-    <img src="./img/banerTest.jpg" class="img-fluid banerEstilo" alt="...">
+    <img src="~/img/banerTest.png" class="img-fluid banerEstilo" alt="...">
 
 </div>
 <div class="row d-flex col-sm-11 col-md-9 col-lg-8 ms-auto me-auto p-0 text-center">
     <div class="card col-lg-6 col-xl-6 d-flex container p-1 m-0 bordeCard estiloFondo">
-        <div class="card-header border-2">
+        <div class="card-header border-2 text-white border border-white">
             <h4>Noticias</h4>
         </div>
-        <div id="noticias" class="card-body conteiner text-start text-white">
-            <ul>
-                
+        <div id="noticias" class="card-body conteiner text-start">
+            <ul class="text-white">
+                @foreach (Noticia noticia in Model.lstNoticia)
+                {
                     <li>
                         <div>
-                            <a class="h5 mb-0 nav-link" asp-controller="Noticias" asp-action="Details" asp-route-id="@noticia.IdNoticia">@Html.DisplayFor(Model => noticia.TituloNoticia)</a>
+                            <a class="h5 mb-0 nav-link text-white" asp-controller="Noticias" asp-action="Details" asp-route-id="@noticia.IdNoticia">@Html.DisplayFor(Model => noticia.TituloNoticia)</a>
                             <p class="fs-6 text-muted mb-0">@Html.DisplayFor(modelItem => noticia.FechaNoticia)</p>
                         </div>
                         <hr class="m-1">
@@ -28,16 +29,16 @@
         </div>
     </div>
     <div class="card col-lg-6 col-xl-6 d-flex container p-1 m-0 bordeCard estiloFondo2">
-        <div class="card-header border-2">
+        <div class="card-header border-2 text-white border border-white">
             <h4>Eventos</h4>
         </div>
-        <div id="eventos" class="card-body conteiner text-start text-white py-1">
-            <ul>
+        <div id="eventos" class="card-body conteiner text-start py-1">
+            <ul class="text-white">
                 @foreach (Evento evento in Model.lstEventos)
                 {
                         <li>
                             <div>
-                            <a class="h5 mb-0 nav-link" asp-controller="Eventos" asp-action="Details" asp-route-id="@evento.IdEvento">@Html.DisplayFor(Model => evento.TituloEvento)</a>
+                            <a class="h5 mb-0 nav-link text-white" asp-controller="Eventos" asp-action="Details" asp-route-id="@evento.IdEvento">@Html.DisplayFor(Model => evento.TituloEvento)</a>
                                 <p class="fs-6 text-muted mb-0">@Html.DisplayFor(modelItem => evento.FechaEvento)</p>
                             </div>
                             <hr class="m-1">
@@ -60,5 +61,5 @@
 
 </div>
 <div class=" card card-body container col-sm-11 col-md-9 col-lg-8 p-0">
-    <img src="./img/banerTest.jpg" class="img-fluid banerEstilo" alt="...">
+    <img src="~/img/banerTest.png" class="img-fluid banerEstilo" alt="...">
 </div>

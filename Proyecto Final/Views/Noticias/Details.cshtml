@@ -5,13 +5,13 @@
 }
 
 <div class=" card card-body container col p-0 ">
-    <img src="~/img/banertest2.jpg" class="img-fluid banerEstilo" alt="...">
+    <img src="~/img/banertest2.png" class="img-fluid banerEstilo" alt="...">
 </div>
 <div class="container">
     <div class="row p-0">
-        <div class="card col-lg-6 col-xl-6 d-flex container p-1 m-0 imgBorde2">
+        <div class="card col-lg-6 col-xl-6 d-flex container p-1 m-0 imgBorde3">
             <a class="btn txtColor" role="button" asp-controller="Noticias" asp-action="IndexUser">
-                <h4>Noticias</h4>
+                <h4 class="text-white">Noticias</h4>
             </a>
         </div>
         <div class="card col-lg-6 col-xl-6 d-flex container p-1 m-0 imgBorde2">
@@ -25,12 +25,12 @@
             </h3>
             
                 <div class="card col-8 mx-auto">
-                    <img class="imgEfecto" src="./img/hfLobby.png" alt="">
+                <img class="imgEfecto" src="@Html.DisplayFor(model => model.Foto)" alt="">
                 </div>
             <p class="m-2">
                 @Html.DisplayFor(model => model.ContenidoNoticia)
             </p>
-            <div class="card-footer text-end">
+            <div class="card-footer text-end border-white">
                 @Html.DisplayFor(model => model.FechaNoticia)
             </div>
         </div>
@@ -41,7 +41,7 @@
 </div>
 <partial name="_AdminNoticeButtons" />
 <div class=" card card-body container col p-0 ">
-    <img src="~/img/banertest2.jpg" class="img-fluid banerEstilo" alt="...">
+    <img src="~/img/banertest2.png" class="img-fluid banerEstilo" alt="...">
 </div>
 
 @*
