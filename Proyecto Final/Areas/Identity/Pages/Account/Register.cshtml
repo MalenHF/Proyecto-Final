@@ -4,67 +4,49 @@
     ViewData["Title"] = "Registro";
 }
 
-<h1 class="text-center">@ViewData["Title"]</h1>
-
-<div class="container mx-auto">
-    <div class="col-6 text-center mx-auto">
-        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Crea una cuenta.</h2>
-            <hr />
+<div class="container my-3 mx-auto">
+    <div class="card col-lg-10 col-sm-12 me-auto ms-auto cardVot">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post"
+              class="col-sm-12 col-md-12 col-lg-12 col-xl-10 text-center me-auto ms-auto m-4">
+            <div class="col-6 col-sm-5 col-md-4 col-lg-3 text-center me-auto ms-auto m-4">
+                <form class="m-4" id="account" method="post">
+                    <img src="~/img/hfLogo.png" class="img-fluid banerEstilo mx-auto imgPerfil imgLogin" alt="...">
+                </form>
+            </div>
+            <div class="card card-header border-2 border-white my-2 mx-5 ">
+                <h2 class="m-3 text-center text-white">Crear una cuenta en Hooligan Force.</h2>
+            </div>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-floating">
+            <div class="form-floating mx-auto my-3 col-11 col-lg-8">
                 <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
                 <label asp-for="Input.Email"></label>
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
-            <div class="form-floating">
+            <div class="form-floating mx-auto mb-3 col-11 col-lg-8">
                 <input asp-for="Input.Nombre" class="form-control" aria-required="true" />
                 <label asp-for="Input.Nombre"></label>
                 <span asp-validation-for="Input.Nombre" class="text-danger"></span>
             </div>
-            <div class="form-floating">
-                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
+            <div class="form-floating mx-auto mb-3 col-11 col-lg-8">
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password"
+                       aria-required="true" />
                 <label asp-for="Input.Password"></label>
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
-            <div class="form-floating">
-                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+            <div class="form-floating mx-auto mb-3 col-11 col-lg-8">
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password"
+                       aria-required="true" />
                 <label asp-for="Input.ConfirmPassword"></label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-dark">Registrarse</button>
+            <div class="text-center my-3">
+                <button id="registerSubmit" type="submit"
+                        class="w-30 btn btn-lg btn-light col-5 btnLogin">
+                    Registrarse
+                </button>
+            </div>
         </form>
     </div>
-    @*<div class="col-md-6 col-md-offset-2">
-        <section>
-            <h3>Use another service to register.</h3>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
-                            about setting up this ASP.NET application to support logging in via external services</a>.
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>
-    </div>*@
 </div>
 
 @section Scripts {
