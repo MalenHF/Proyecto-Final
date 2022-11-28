@@ -9,13 +9,13 @@
 
 </div>
 <div class="row d-flex col-sm-11 col-md-9 col-lg-8 ms-auto me-auto p-0 text-center">
-    <div class="card col-lg-6 col-xl-6 d-flex container p-1 m-0 bordeCard">
+    <div class="card col-lg-6 col-xl-6 d-flex container p-1 m-0 bordeCard estiloFondo">
         <div class="card-header border-2">
             <h4>Noticias</h4>
         </div>
-        <div id="noticias" class="card-body conteiner text-start">
+        <div id="noticias" class="card-body conteiner text-start text-white">
             <ul>
-                @foreach(Noticia noticia in Model.lstNoticia){
+                
                     <li>
                         <div>
                             <a class="h5 mb-0 nav-link" asp-controller="Noticias" asp-action="Details" asp-route-id="@noticia.IdNoticia">@Html.DisplayFor(Model => noticia.TituloNoticia)</a>
@@ -27,11 +27,11 @@
             </ul>
         </div>
     </div>
-    <div class="card col-lg-6 col-xl-6 d-flex container p-1 m-0 bordeCard">
+    <div class="card col-lg-6 col-xl-6 d-flex container p-1 m-0 bordeCard estiloFondo2">
         <div class="card-header border-2">
             <h4>Eventos</h4>
         </div>
-        <div id="eventos" class="card-body conteiner text-start py-1">
+        <div id="eventos" class="card-body conteiner text-start text-white py-1">
             <ul>
                 @foreach (Evento evento in Model.lstEventos)
                 {

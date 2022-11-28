@@ -4,50 +4,43 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>Publicacione</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="PublicacionId" />
-            <div class="form-group">
-                <label asp-for="IdUsuario" class="control-label"></label>
-                <select asp-for="IdUsuario" class="form-control" asp-items="ViewBag.IdUsuario"></select>
-                <span asp-validation-for="IdUsuario" class="text-danger"></span>
+<h1 class="text-center display-5 p-2">Editar Publicacion</h1>
+<div class="container my-3">
+    <div class="row card col col-xl-8 mx-auto p-2">
+        <div class="col mx-auto m-3 text-center">
+            <form asp-action="Edit" class="mx-auto col-11 col-xl-10">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="PublicacionId" />
+                <div class="form-group d-none">
+                    <label asp-for="IdUsuario" class="control-label"></label>
+                    <select asp-for="IdUsuario" class="form-control" asp-items="ViewBag.IdUsuario"></select>
+                    <span asp-validation-for="IdUsuario" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Titulo" class="control-label">Titulo de la Publicacion</label>
+                    <input asp-for="Titulo" class="form-control" />
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FotoPath" class="control-label">Foto por URL</label>
+                    <input asp-for="FotoPath" class="form-control" />
+                    <span asp-validation-for="FotoPath" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check my-2">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Estatus" /> Estatus de aprobacion
+                    </label>
+                </div>
+                <div class="form-group m-2">
+                    <input type="submit" value="Guardar cambios" class="btn btn-primary" />
+                </div>
+            </form>
+            <div class="m-2 mb-0">
+                <a asp-action="Index" class="noLink">Regresar a la lista</a>
             </div>
-            <div class="form-group">
-                <label asp-for="FotoPath" class="control-label"></label>
-                <input asp-for="FotoPath" class="form-control" />
-                <span asp-validation-for="FotoPath" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Estatus" /> @Html.DisplayNameFor(model => model.Estatus)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Titulo" class="control-label"></label>
-                <input asp-for="Titulo" class="form-control" />
-                <span asp-validation-for="Titulo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaPublicacion" class="control-label"></label>
-                <input asp-for="FechaPublicacion" class="form-control" />
-                <span asp-validation-for="FechaPublicacion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+</div>  
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

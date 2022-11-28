@@ -72,96 +72,52 @@
         </div>
 
     </header>
-
-    <div class=" card card-body container col-sm-11 col-md-9 col-lg-8 p-0 ">
-        <img src="./img/banerTest.jpg" class="img-fluid banerEstilo" alt="...">
-    </div>
-    <div class="row d-flex col-sm-11 col-md-9 col-lg-8 ms-auto me-auto p-0 text-center">
-        <div class="card col-lg-6 col-xl-6 d-flex container p-1 m-0 bordeCard estiloFondo">
-            <div class="card-header border-2 border border-white text-white">
-                <h4>Noticias</h4>
-            </div>
-            <div id="noticias" class="card-body conteiner text-start text-white">
-                <ul>
-                    <li>noticia</li>
-                    <li>noticia</li>
-                    <li>noticia</li>
-                    <li>noticia</li>
-                    <li>noticia</li>
-                </ul>
-            </div>
-        </div>
-        <div class="card col-lg-6 col-xl-6 d-flex container p-1 m-0 bordeCard estiloFondo2">
-            <div class="card-header border-2 border border-white text-white">
-                <h4>Eventos</h4>
-            </div>
-            <div id="eventos" class="card-body conteiner text-start text-white">
-                <ul>
-                    <li>Eventos</li>
-                    <li>Eventos</li>
-                    <li>Eventos</li>
-                    <li>Eventos</li>
-                    <li>Eventos</li>
-                </ul>
-            </div>
-
-
-        </div>
-    </div>
-
-
-    <div id="divMiniGal" class="row cards d-flex col-sm-11 col-md-9 col-lg-8 ms-auto me-auto text-center imgEstilo">
-        
-        <div class="card card-body text-center d-flex col-sm-5 col-md-5 col-lg-2 imgBorde">
-            <img src="./img/imgTest.png" class="imgConte" alt="...">
-        </div>
-        <div class="card card-body text-center d-flex col-sm-5 col-md-5 col-lg-2 imgBorde">
-            <img src="./img/imgTest.png"   class="imgConte" alt="...">
-        </div>
-        <div class="card card-body text-center d-flex col-sm-5 col-md-5 col-lg-2 imgBorde">
-            <img src="./img/imgTest.png"  class="imgConte" alt="...">
-        </div>
-        <div class="card card-body text-center d-flex col-sm-5 col-md-5 col-lg-2 imgBorde ">
-            <img src="./img/imgTest.png"  class=" imgConte" alt="...">
-        </div>
-
-
-    </div>
-    <div class=" card card-body container col-sm-11 col-md-9 col-lg-8 p-0">
-        <img src="./img/banerTest.jpg" class="img-fluid banerEstilo" alt="...">
-        <!--<div id="carouselExampleCaptions" class="container carousel slide conteiner" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="./img/HF Fondo.png" class="d-block w-100" alt="...">
+    <div class="container my-3 mx-auto">
+        <div class="card col-lg-10 col-sm-12 me-auto ms-auto cardVot">
+            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post"
+            class="col-sm-12 col-md-12 col-lg-12 col-xl-10 text-center me-auto ms-auto m-4">
+            <div class="col-6 col-sm-5 col-md-4 col-lg-3 text-center me-auto ms-auto m-4">
+                    <form class="m-4" id="account" method="post">
+                        <img src="./img/hfLogo.png" class="img-fluid banerEstilo mx-auto imgPerfil imgLogin" alt="...">
+                    </form>
                 </div>
-                <div class="carousel-item">
-                    <img src="./img/hfLobby.png" class="d-block w-100" alt="...">
+                <div class="card card-header border-2 border-white my-2 mx-5 ">
+                    <h2 class="m-3 text-center text-white">Crear una cuenta en Hooligan Force.</h2>
                 </div>
-                <div class="carousel-item">
-                    <img src="./img/just.jpg" class="d-block w-100" alt="...">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-floating card-header me-auto ms-auto col-11 col-lg-9 text-black">
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                    <label asp-for="Input.Email"></label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+                <div class="form-floating card-header me-auto ms-auto col-11 col-lg-9 text-black">
+                    <input asp-for="Input.Nombre" class="form-control" aria-required="true" />
+                    <label asp-for="Input.Nombre"></label>
+                    <span asp-validation-for="Input.Nombre" class="text-danger"></span>
+                </div>
+                <div class="form-floating card-header me-auto ms-auto col-11 col-lg-9 text-black">
+                    <input asp-for="Input.Password" class="form-control" autocomplete="new-password"
+                        aria-required="true" />
+                    <label asp-for="Input.Password"></label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-floating card-header me-auto ms-auto col-11 col-lg-9 text-black">
+                    <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password"
+                        aria-required="true" />
+                    <label asp-for="Input.ConfirmPassword"></label>
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+                <div class="text-center my-3">
+                    <button id="registerSubmit" type="submit"
+                        class="w-30 btn btn-lg btn-light col-5 btnLogin">Registrarse</button>
+                </div>
+            </form>
+        </div>
 
-        </div>-->
     </div>
+
+    <hr>
+
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2022 - Proyecto_Final - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
