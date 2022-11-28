@@ -13,7 +13,7 @@ using Proyecto_Final.Models.DTO;
 
 namespace Proyecto_Final.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    
     public class NoticiasController : Controller
     {
         private readonly ProyectoFinalContext _context;
@@ -26,6 +26,7 @@ namespace Proyecto_Final.Controllers
         }
 
         // GET: Noticias
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             var proyectoFinalContext = _context.Noticias.Include(n => n.IdUsuarioNavigation).OrderByDescending(x => x.FechaNoticia);
@@ -57,6 +58,7 @@ namespace Proyecto_Final.Controllers
         }
 
         // GET: Noticias/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             ViewData["IdUsuario"] = new SelectList(_context.Users, "Id", "Id");
@@ -68,6 +70,7 @@ namespace Proyecto_Final.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(NoticiaCreateDTO noticia)
         {
             if (ModelState.IsValid)
@@ -95,6 +98,7 @@ namespace Proyecto_Final.Controllers
         }
 
         // GET: Noticias/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Noticias == null)
@@ -107,8 +111,17 @@ namespace Proyecto_Final.Controllers
             {
                 return NotFound();
             }
+            NoticiaUpdateDTO nud = new NoticiaUpdateDTO();
+
+            nud.IdNoticia = noticia.IdNoticia;
+            nud.TituloNoticia = noticia.TituloNoticia;
+            nud.NoticiaStatus = noticia.NoticiaStatus;
+            nud.ContenidoNoticia = noticia.ContenidoNoticia;
+            nud.FechaNoticia = noticia.FechaNoticia;
+            nud.Foto=noticia.Foto;
+            
             ViewData["IdUsuario"] = new SelectList(_context.Users, "Id", "Id", noticia.IdUsuario);
-            return View(noticia);
+            return View(nud);
         }
 
         // POST: Noticias/Edit/5
@@ -116,7 +129,8 @@ namespace Proyecto_Final.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdNoticia,IdUsuario,TituloNoticia,ContenidoNoticia,NoticiaStatus,FechaNoticia,Foto")] Noticia noticia)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Edit(int id, NoticiaUpdateDTO noticia)
         {
             if (id != noticia.IdNoticia)
             {
@@ -127,8 +141,19 @@ namespace Proyecto_Final.Controllers
             {
                 try
                 {
-                    _context.Update(noticia);
+                    Noticia n = new Noticia
+                    {
+                        IdNoticia = noticia.IdNoticia,
+                        IdUsuario = noticia.IdUsuario,
+                        TituloNoticia = noticia.TituloNoticia,
+                        ContenidoNoticia = noticia.ContenidoNoticia,
+                        NoticiaStatus = noticia.NoticiaStatus,
+                        FechaNoticia = DateTime.Now,
+                        Foto = noticia.Foto
+                    };
+                    _context.Update(n);
                     await _context.SaveChangesAsync();
+   
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -148,6 +173,7 @@ namespace Proyecto_Final.Controllers
         }
 
         // GET: Noticias/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Noticias == null)
@@ -169,6 +195,7 @@ namespace Proyecto_Final.Controllers
         // POST: Noticias/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Noticias == null)

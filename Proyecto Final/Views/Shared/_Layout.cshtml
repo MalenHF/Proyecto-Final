@@ -5,54 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Hooligan Force 7DTD</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Proyecto_Final.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/inico.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Admin Panel</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">                        
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Noticias" asp-action="Index">Panel de Noticias</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Eventos" asp-action="Index">Panel de Eventos</a>
-                        </li>
-                        <li>
-                            <a class="nav-link text-dark" aria-disabled="true" asp-controller="Publicaciones" asp-action="Index">Panel de Galeria</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
+       
+        <partial name="_AdminPanel" />
 
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow m-0 p-2 ">
+        <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-dark bg-dark border-bottom box-shadow m-0 p-2 ">
             <div class="container-fluid">
                 
-                <a class="navbar-brand col-3" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/hfLogo.png" alt="" height="62" width="65" class="rounded-circle imgPerfil"></a>
+                <a class="navbar-brand col-3 me-0" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/hfLogo.png" alt="" height="62" width="65" class="rounded-circle imgPerfil"></a>
                
-                <a class="navbar-brand mx-auto" asp-area="" asp-controller="Home" asp-action="Index">
+                <a class="navbar-brand text-center col-6 me-0" asp-area="" asp-controller="Home" asp-action="Index">
                     <b class="h2 tituloHF">Hooligan Force</b>
                 </a>
-                <div class="col-3 d-flex flex-row-reverse">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-lg-inline-flex justify-content-between col-3" id="navbarNavAltMarkup">
                     <partial name="_LoginPartial" />
                 </div>
                 
             </div>
 
         </nav>
+        <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-light bg-dark border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                
+                    <a class="navbar-brand col-3 m-0" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/hfLogo.png" alt="" height="62" width="65" class="rounded-circle imgPerfil"></a>
+                    <div class="col-6">
+                        <a class="navbar-brand text-center col-6 m-0" asp-area="" asp-controller="Home" asp-action="Index">
+                        <b class="h2 tituloHF">Hooligan Force</b>
+                        </a>
+                    </div>
+                    
+                    <div class="col-3">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="navbar-collapse collapse d-lg-inline-flex justify-content-between">                            
+                            <partial name="_LoginPartial" />
+                        </div>
+                    </div>                    
+                 
+                
+            </div>
+        </nav>
+
+
+
+
         <div class="navbar-collapse p-0 m-0" id="navbarSupportedContent">
             <ul class="navbar d-flex estiloNav p-0 mb-0 col-auto">
 

@@ -4,10 +4,11 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
+<h1 class="text-center">Panel de Galerias</h1>
+
+<p class="text-center">
+    <a asp-action="Create" class="btn btn-primary">Nueva Galeriaw</a>
 </p>
 <div class="container card p-0">
     <div class="card-header text-center">
@@ -24,7 +25,20 @@
                     </div>
                 </a>
                 <div class="col-12">
-                    @Html.DisplayFor(modelItem => item.Estatus) |
+                    @if (item.Estatus)
+                    {
+                        <label class="form-control">
+                            <input type="checkbox" name="checkbox-checked" checked disabled/>
+                        </label>
+                    }
+                    else
+                    {
+                        <label class="form-control">
+                            <input type="checkbox" name="checkbox-checked" disabled />
+                        </label>
+                    }
+                    
+
                     <a class="btn btn-primary col-5" asp-action="Edit" asp-route-id="@item.PublicacionId">Editar</a> |
                     
                     <a class="btn btn-danger col-5" asp-action="Delete" asp-route-id="@item.PublicacionId">Borrar</a>
@@ -33,10 +47,60 @@
              
 }        
     </div>
-    <div class="card-footer text-center">        
-        <a class="btn btn-dark mx-auto" asp-action="Create">Subir Foto</a>
-    </div>
 </div>
+
+
+<table class="table bg-white mt-3">
+    <thead>
+        <tr>
+            <th class="text-center">
+                Estatus
+            </th>
+            <th>
+                Titulo
+            </th>
+            <th>
+                Foto URL
+            </th>            
+            <th>
+                Fecha
+            </th>
+            <th>
+                Creador
+            </th>
+            <th class="text-center">
+                Edición
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Estatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FotoPath)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaPublicacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.Nombre)
+                </td>
+                <td class="text-center">
+                    <a asp-action="Edit" asp-route-id="@item.PublicacionId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.PublicacionId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PublicacionId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
 
 

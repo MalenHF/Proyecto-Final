@@ -6,15 +6,21 @@ namespace Proyecto_Final.Models.DTO
 {
     public class NoticiaUpdateDTO
     {
-        public string tituloNoticia { get; set; } = null!;
+        [Key]
+        [Column("idNoticia")]
+        public int IdNoticia { get; set; }
+        [Column("idUsuario")]
+        public int IdUsuario { get; set; }
+        [Column("tituloNoticia")]
+        [StringLength(50)]
+        public string TituloNoticia { get; set; } = null!;
         [Column("contenidoNoticia")]
-        public string contenidoNoticia { get; set; } = null!;
+        public string ContenidoNoticia { get; set; } = null!;
+        [Column("noticiaStatus")]
+        public bool NoticiaStatus { get; set; }
         [Column("fechaNoticia", TypeName = "datetime")]
-        public DateTime fechaNoticia { get; set; }
+        public DateTime FechaNoticia { get; set; }
         [Column("foto")]
         public string? Foto { get; set; }
-        public IFormFile? FotoFile { get; set; }
-        [Column("estatusNoticia")]
-        public bool noticiaStatus { get; set; }
     }
 }

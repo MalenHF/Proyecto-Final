@@ -6,6 +6,7 @@ namespace Proyecto_Final.Controllers
     {
         public IActionResult Index()
         {
+
             return View();
         }
     }

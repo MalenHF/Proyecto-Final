@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -24,9 +26,10 @@ namespace Proyecto_Final.Controllers
         }
 
         // GET: Publicaciones
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
-            var proyectoFinalContext = _context.Publicaciones.Include(p => p.IdUsuarioNavigation);
+            var proyectoFinalContext = _context.Publicaciones.Include(p => p.IdUsuarioNavigation).OrderByDescending(x => x.FechaPublicacion);
             return View(await proyectoFinalContext.ToListAsync());
         }
 
@@ -37,7 +40,7 @@ namespace Proyecto_Final.Controllers
             ivm.lstPublicaciones = _context.Publicaciones.Where(x => x.Estatus == true).OrderByDescending(x => x.FechaPublicacion).ToList();            
             return View(ivm);
         }
-
+        
         // GET: Publicaciones/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -57,7 +60,10 @@ namespace Proyecto_Final.Controllers
             return View(publicacione);
         }
 
+
+
         // GET: Publicaciones/Create
+        [Authorize(Roles = null)]
         public IActionResult Create()
         {
             ViewData["IdUsuario"] = new SelectList(_context.Users, "Id", "Id");
@@ -95,7 +101,34 @@ namespace Proyecto_Final.Controllers
             return View(publicacione);
         }
 
+        public async Task<IActionResult> CreateUser(PublicacioneCreateDTO publicacione)
+        {
+            if (ModelState.IsValid)
+            {
+                AplicationUser user = await _userManager.GetUserAsync(User);
+                if (user == null)
+                {
+                    return BadRequest();
+                }
+                Publicacione p = new Publicacione
+                {
+                    PublicacionId = publicacione.PublicacionId,
+                    IdUsuario = user.Id,
+                    FotoPath = publicacione.FotoPath,
+                    Titulo = publicacione.Titulo,
+                    Estatus = publicacione.Estatus,
+                    FechaPublicacion = DateTime.Now
+                };
+                _context.Add(p);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Galeria));
+            }
+            ViewData["IdUsuario"] = new SelectList(_context.Users, "Id", "Id", publicacione.IdUsuario);
+            return View(publicacione);
+        }
+
         // GET: Publicaciones/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Publicaciones == null)
@@ -108,8 +141,15 @@ namespace Proyecto_Final.Controllers
             {
                 return NotFound();
             }
+            PublicacioneUpdatesDTO pud = new PublicacioneUpdatesDTO();
+            pud.PublicacionId= publicacione.PublicacionId;
+            pud.Titulo= publicacione.Titulo;
+            pud.Estatus = publicacione.Estatus;
+            pud.FechaPublicacion = publicacione.FechaPublicacion;
+            pud.FotoPath = publicacione.FotoPath;
+
             ViewData["IdUsuario"] = new SelectList(_context.Users, "Id", "Id", publicacione.IdUsuario);
-            return View(publicacione);
+            return View(pud);
         }
        
 
@@ -118,7 +158,8 @@ namespace Proyecto_Final.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PublicacionId,IdUsuario,FotoPath,Estatus,Titulo,FechaPublicacion")] Publicacione publicacione)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Edit(int id, PublicacioneUpdatesDTO publicacione)
         {
             if (id != publicacione.PublicacionId)
             {
@@ -129,7 +170,16 @@ namespace Proyecto_Final.Controllers
             {
                 try
                 {
-                    _context.Update(publicacione);
+                    Publicacione pub = new Publicacione
+                    {
+                        PublicacionId = publicacione.PublicacionId,
+                        IdUsuario = publicacione.IdUsuario,
+                        Titulo = publicacione.Titulo,                        
+                        Estatus = publicacione.Estatus,
+                        FechaPublicacion = DateTime.Now,
+                        FotoPath = publicacione.FotoPath
+                    };
+                    _context.Update(pub);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -150,6 +200,7 @@ namespace Proyecto_Final.Controllers
         }
 
         // GET: Publicaciones/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Publicaciones == null)
@@ -171,6 +222,7 @@ namespace Proyecto_Final.Controllers
         // POST: Publicaciones/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Publicaciones == null)

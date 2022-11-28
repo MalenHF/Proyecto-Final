@@ -1,8 +1,12 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Proyecto_Final.Models.dbModels;
+using System.Net.Http;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
+var url = "https://7daystodie-servers.com/api/?object=servers&element=voters&key=7sHIa1nwSfD6vyFLmUV49reCIqaXFkpxtDf&month=current&format=json&limit=10";
+JsonSerializerOptions options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -17,6 +21,12 @@ builder.Services.AddIdentity<AplicationUser, IdentityRole<int>>(options => optio
     .AddDefaultTokenProviders();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Identity/Account/Login";
+    options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+});
 
 var app = builder.Build();
 

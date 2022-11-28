@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AplicationUser> SignInManager
+@inject UserManager<AplicationUser> UserManager
+@model Proyecto_Final.Models.dbModels.Publicacione
+
+
+@if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+{
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="FotoPath" class="control-label"></label>
+            <input asp-for="FotoPath" class="form-control" />
+            <span asp-validation-for="FotoPath" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Titulo" class="control-label"></label>
+            <input asp-for="Titulo" class="form-control" />
+            <span asp-validation-for="Titulo" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+}
+else
+{
+    <form asp-action="CreateUser">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="FotoPath" class="control-label"></label>
+            <input asp-for="FotoPath" class="form-control" />
+            <span asp-validation-for="FotoPath" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Titulo" class="control-label"></label>
+            <input asp-for="Titulo" class="form-control" />
+            <span asp-validation-for="Titulo" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+}
+

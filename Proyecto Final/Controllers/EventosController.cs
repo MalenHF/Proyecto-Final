@@ -26,11 +26,14 @@ namespace Proyecto_Final.Controllers
         }
 
         // GET: Eventos
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             var proyectoFinalContext = _context.Eventos.Include(e => e.IdUsuarioNavigation).OrderByDescending(x => x.FechaEvento);
             return View(await proyectoFinalContext.ToListAsync());
         }
+
+
         public async Task<IActionResult> IndexUser()
         {
             var proyectoFinalContext = _context.Eventos.OrderByDescending(x => x.FechaEvento).Where(x => x.EstatusEvento == true);
@@ -42,7 +45,7 @@ namespace Proyecto_Final.Controllers
             var eventos = _context.Eventos.OrderByDescending(x => x.FechaEvento).Take(5);
             return View(await eventos.ToListAsync());
         }
-
+        
         // GET: Eventos/Details/5f
         public async Task<IActionResult> Details(int? id)
         {
@@ -63,6 +66,7 @@ namespace Proyecto_Final.Controllers
         }
 
         // GET: Eventos/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             ViewData["IdUsuario"] = new SelectList(_context.Users, "Id", "Id");
@@ -103,6 +107,7 @@ namespace Proyecto_Final.Controllers
         }
 
         // GET: Eventos/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Eventos == null)
@@ -199,6 +204,7 @@ namespace Proyecto_Final.Controllers
         // POST: Eventos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
 
         public async Task<IActionResult> DeleteConfirmed(int id)
         {

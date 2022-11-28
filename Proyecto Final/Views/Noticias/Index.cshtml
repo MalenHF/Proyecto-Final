@@ -4,12 +4,12 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 class="text-center">Panel de Noticias</h1>
 
-<p>
-    <a asp-action="Create">Crear Noticias</a>
+<p class="text-center">
+    <a class="btn btn-primary" asp-action="Create">Crear Noticias</a>
 </p>
-<div class="card col-6">
+<div class="card col-6 mx-auto">
     <table class="table">
         <thead>
             <tr>
@@ -24,16 +24,15 @@
             {
                 <tr>
                     <td>
-                        <a class="h3 mb-0" asp-action="Details" asp-route-id="@item.IdNoticia">@Html.DisplayFor(modelItem => item.TituloNoticia)</a>
+                        <a class="h5 mb-0" asp-action="Details" asp-route-id="@item.IdNoticia">@Html.DisplayFor(modelItem => item.TituloNoticia)</a>
 
                         @Html.DisplayFor(modelItem => item.NoticiaStatus)
 
                         <p class="fs-6 text-muted mb-0">@Html.DisplayFor(modelItem => item.FechaNoticia)</p>
                     </td>
                     <td class="text-center col">
-                        <a asp-action="Edit" asp-route-id="@item.IdNoticia">Aprobar</a> |
-                        <a asp-action="Edit" asp-route-id="@item.IdNoticia">Editar</a> |
-                        <a asp-action="Delete" asp-route-id="@item.IdNoticia">Delete</a>
+                        <a asp-action="Edit" asp-route-id="@item.IdNoticia">Edición</a> |
+                        <a asp-action="Delete" asp-route-id="@item.IdNoticia" class="text-danger">Eliminar</a>
                     </td>
                 </tr>
             }
@@ -45,38 +44,40 @@
 <table class="table bg-white mt-3">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TituloNoticia)
+            <th class="text-center">
+                Estatus
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ContenidoNoticia)
+               Titulo
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NoticiaStatus)
+                Contenido
+            </th>            
+            <th>
+                Fecha
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaNoticia)
+                Foto URL
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Foto)
+                Creador
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdUsuarioNavigation)
+                Edición
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.NoticiaStatus)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TituloNoticia)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ContenidoNoticia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NoticiaStatus)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FechaNoticia)
@@ -85,12 +86,12 @@
                 @Html.DisplayFor(modelItem => item.Foto)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.Id)
+                    @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.Id) | @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.Nombre)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdNoticia">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdNoticia">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdNoticia">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.IdNoticia">Vista</a> |
+                <a asp-action="Edit" asp-route-id="@item.IdNoticia">Edición</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdNoticia" class="text-danger">Eliminar</a>
             </td>
         </tr>
 }

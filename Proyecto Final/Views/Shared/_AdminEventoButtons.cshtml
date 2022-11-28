@@ -1,0 +1,14 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AplicationUser> SignInManager
+@inject UserManager<AplicationUser> UserManager
+
+
+@if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+{
+
+    <div class="container text-center my-2 text-white">
+        <a class="btn btn-primary" asp-controller="Eventos" asp-action="Edit" asp-route-id="@Model?.IdEvento">Editar</a> |
+        <a class="btn btn-danger" asp-controller="Eventos" asp-action="Index">Panel de Eventos</a>
+    </div>
+}
+

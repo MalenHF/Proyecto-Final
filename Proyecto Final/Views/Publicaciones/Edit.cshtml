@@ -1,4 +1,4 @@
-﻿@model Proyecto_Final.Models.dbModels.Publicacione
+﻿@model Proyecto_Final.Models.DTO.PublicacioneUpdatesDTO
 
 @{
     ViewData["Title"] = "Edit";
@@ -17,7 +17,7 @@
                 <label asp-for="IdUsuario" class="control-label"></label>
                 <select asp-for="IdUsuario" class="form-control" asp-items="ViewBag.IdUsuario"></select>
                 <span asp-validation-for="IdUsuario" class="text-danger"></span>
-            </div>
+            </div>m
             <div class="form-group">
                 <label asp-for="FotoPath" class="control-label"></label>
                 <input asp-for="FotoPath" class="form-control" />

@@ -4,9 +4,6 @@
     ViewData["Title"] = "Details";
 }
 
-
-
-
 <div class=" card card-body container col p-0 ">
     <img src="~/img/banertest2.jpg" class="img-fluid banerEstilo" alt="...">
 </div>
@@ -14,7 +11,7 @@
     <div class="row p-0">
         <div class="card col-lg-6 col-xl-6 d-flex container p-1 m-0 imgBorde2">
             <a class="btn txtColor" role="button" asp-controller="Noticias" asp-action="IndexUser">
-                <h4>Noticas</h4>
+                <h4>Noticias</h4>
             </a>
         </div>
         <div class="card col-lg-6 col-xl-6 d-flex container p-1 m-0 imgBorde2">
@@ -30,8 +27,6 @@
                 <div class="card col-8 mx-auto">
                     <img class="imgEfecto" src="./img/hfLobby.png" alt="">
                 </div>
-            
-            
             <p class="m-2">
                 @Html.DisplayFor(model => model.ContenidoNoticia)
             </p>
@@ -41,10 +36,10 @@
         </div>
     </div>
 </div>
-<div class="container text-end ">
-    <a asp-action="Edit" asp-route-id="@Model?.IdNoticia">Editar</a> |
-    <a asp-action="Index">Volver a la lista</a>
+<div class="container text-center my-2 text-white">    
+    <a class="btn btn-dark" asp-action="IndexUser">Volver a la Noticias</a>
 </div>
+<partial name="_AdminNoticeButtons" />
 <div class=" card card-body container col p-0 ">
     <img src="~/img/banertest2.jpg" class="img-fluid banerEstilo" alt="...">
 </div>

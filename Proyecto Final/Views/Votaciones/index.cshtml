@@ -15,11 +15,34 @@
             </h2>
         </div>
         <div class="row">
-            <div class="card-header me-auto ms-auto col-11 col-lg-9 border border-dark text-black border-5 conteVot">
+            <div class="card-header me-auto ms-auto col-11 col-lg-11 border border-dark text-black border-5 conteVot">
                 <h1 class="text-center conteInfo2 ">
                     <i class="fa-solid fa-trophy bg"></i> Top Votadores <i class="fa-solid fa-trophy"></i></i>
                 </h1>
-                <h1 class="text-center">
+                <div class="row">
+
+                    <div class="col text-center m-2">
+                        <h2>Previo Mes</h2>
+                        <table class="votTable" id="divVotosPrev">
+                            <tr class="voteTr cardVot text-white">
+                                <th class="voteTh text-center"><b>Votos</b></th>
+                                <th class="voteTh text-center"><b>Jugador</b></th>
+                            </tr>                            
+                        </table>
+                    </div>
+                    <div class="col text-center m-2">
+                        <h2>Mes Actual</h2>
+                        <table class="votTable" id="divVotos">
+                            <tr class="voteTr cardVot text-white">
+                                <th class="voteTh text-center">Votos</th>
+                                <th class="voteTh text-center">Jugador</th>
+                            </tr>                            
+                        </table>
+                    </div>
+                </div>
+
+                
+                @*<h1 class="text-center">
                     Aqui va el API de Votaciones
                 </h1>
 
@@ -32,17 +55,18 @@
                     <li>5</li>
                     </h2>
 
-                </ul>
+                </ul>*@
             </div>
         </div>
         <div class="row">
-            <div class="card me-auto ms-auto col-9 my-2 border-dark border-5">
+            <div class="card me-auto ms-auto col-9 my-2 border-light border-5 bg-dark text-white">
                 <h3 class="text-center card-header border-3">Premios por votar!</h3>
                 <ul class="my-3 " style="list-style-type: none;">
                     <li><i class="fa-solid fa-star"></i>A</li>
                     <li><i class="fa-solid fa-star"></i>B</li>
                     <li><i class="fa-solid fa-star"></i>C</li>
                 </ul>
+               
                 <a href="https://7daystodie-servers.com/server/90295/" class="btn btn-primary me-auto ms-auto p-2 my-3 col border-secondary border-2 bg-secondary btnVotar"
                    target="_blank">Votar por el servidor</a>
             </div>

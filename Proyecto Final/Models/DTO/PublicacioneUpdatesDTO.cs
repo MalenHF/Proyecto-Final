@@ -6,7 +6,12 @@ namespace Proyecto_Final.Models.DTO
 {
     public class PublicacioneUpdatesDTO
     {
-        
+
+        [Key]
+        [Column("publicacionID")]
+        public int PublicacionId { get; set; }
+        [Column("idUsuario")]
+        public int IdUsuario { get; set; }
         [Column("fotoPath")]
         public string FotoPath { get; set; } = null!;
         [Column("estatus")]
@@ -14,5 +19,7 @@ namespace Proyecto_Final.Models.DTO
         [Column("titulo")]
         [StringLength(50)]
         public string Titulo { get; set; } = null!;
+        [Column("fechaPublicacion", TypeName = "datetime")]
+        public DateTime FechaPublicacion { get; set; }
     }
 }

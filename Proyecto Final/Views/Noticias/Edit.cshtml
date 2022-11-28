@@ -1,50 +1,46 @@
-﻿@model Proyecto_Final.Models.dbModels.Noticia
+﻿@model Proyecto_Final.Models.DTO.NoticiaUpdateDTO
 
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>Noticia</h4>
+<hr />
+<h1 class="text-center">Revision y Edicion de Noticia</h1>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6 card mx-auto">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="IdNoticia" />
-            <div class="form-group">
+            <div class="form-group d-none">
                 <label asp-for="IdUsuario" class="control-label"></label>
                 <select asp-for="IdUsuario" class="form-control" asp-items="ViewBag.IdUsuario"></select>
                 <span asp-validation-for="IdUsuario" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group text-center my-2">
                 <label asp-for="TituloNoticia" class="control-label"></label>
                 <input asp-for="TituloNoticia" class="form-control" />
                 <span asp-validation-for="TituloNoticia" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group text-center mb-2">
                 <label asp-for="ContenidoNoticia" class="control-label"></label>
-                <input asp-for="ContenidoNoticia" class="form-control" />
+                <textarea asp-for="ContenidoNoticia" class="form-control" rows="10"></textarea>
                 <span asp-validation-for="ContenidoNoticia" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="NoticiaStatus" /> @Html.DisplayNameFor(model => model.NoticiaStatus)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaNoticia" class="control-label"></label>
-                <input asp-for="FechaNoticia" class="form-control" />
-                <span asp-validation-for="FechaNoticia" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            </div>            
+            <div class="form-group text-center">
                 <label asp-for="Foto" class="control-label"></label>
                 <input asp-for="Foto" class="form-control" />
                 <span asp-validation-for="Foto" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <hr />
+            <div class="form-group form-check text-center mb-2">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="NoticiaStatus" /> @Html.DisplayNameFor(model => model.NoticiaStatus)
+                </label>
+            </div>
+            <div class="form-group card card-footer mb-2">
+                <input type="submit" value="Guardar" class="btn btn-primary mb-1 col-6  mx-auto" />
+                <input type="submit" value="Cancelar" class="btn btn-danger col-6  mx-auto" asp-action="Index" />
             </div>
         </form>
     </div>
