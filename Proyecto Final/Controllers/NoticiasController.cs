@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -16,10 +17,12 @@ namespace Proyecto_Final.Controllers
     public class NoticiasController : Controller
     {
         private readonly ProyectoFinalContext _context;
+        private readonly UserManager<AplicationUser> _userManager;
 
-        public NoticiasController(ProyectoFinalContext context)
+        public NoticiasController(ProyectoFinalContext context, UserManager<AplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Noticias
@@ -69,9 +72,14 @@ namespace Proyecto_Final.Controllers
         {
             if (ModelState.IsValid)
             {
+                AplicationUser user = await _userManager.GetUserAsync(User);
+                if (user == null)
+                {
+                    return BadRequest();
+                }
                 Noticia n = new Noticia
                 {
-                    IdUsuario = noticia.IdUsuario,
+                    IdUsuario = user.Id,
                     TituloNoticia = noticia.tituloNoticia,
                     ContenidoNoticia = noticia.contenidoNoticia,
                     NoticiaStatus = noticia.noticiaStatus,

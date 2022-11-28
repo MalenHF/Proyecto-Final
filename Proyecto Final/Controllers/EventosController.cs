@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -16,10 +17,12 @@ namespace Proyecto_Final.Controllers
     public class EventosController : Controller
     {
         private readonly ProyectoFinalContext _context;
+        private readonly UserManager<AplicationUser> _userManager;
 
-        public EventosController(ProyectoFinalContext context)
+        public EventosController(ProyectoFinalContext context, UserManager<AplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Eventos
@@ -77,9 +80,14 @@ namespace Proyecto_Final.Controllers
             
             if (ModelState.IsValid)
             {
+                AplicationUser user = await _userManager.GetUserAsync(User);
+                if(user == null)
+                {
+                    return BadRequest();
+                }
                 Evento e = new Evento
                 {
-                    IdUsuario = evento.IdUsuario,
+                    IdUsuario = user.Id,
                     TituloEvento = evento.TituloEvento,
                     ContenidoEvento = evento.ContenidoEvento,
                     EstatusEvento = evento.EstatusEvento,
@@ -107,8 +115,17 @@ namespace Proyecto_Final.Controllers
             {
                 return NotFound();
             }
+            EventoUpdateDTO eud = new EventoUpdateDTO();
+            eud.IdEvento = evento.IdEvento;
+            eud.TituloEvento = evento.TituloEvento;
+            eud.EstatusEvento = evento.EstatusEvento;
+            eud.FechaEvento = evento.FechaEvento;
+            eud.ContenidoEvento = evento.ContenidoEvento;
+            eud.Foto = evento.Foto;
+
+            
             ViewData["IdUsuario"] = new SelectList(_context.Users, "Id", "Id", evento.IdUsuario);
-            return View(evento);
+            return View(eud);
         }
 
         // POST: Eventos/Edit/5
@@ -117,7 +134,8 @@ namespace Proyecto_Final.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(int id, [Bind("IdEvento,IdUsuario,TituloEvento,ContenidoEvento,EstatusEvento,FechaEvento,Foto")] Evento evento)
+       
+        public async Task<IActionResult> Edit(int id, EventoUpdateDTO evento)
         {
             if (id != evento.IdEvento)
             {
@@ -128,7 +146,17 @@ namespace Proyecto_Final.Controllers
             {
                 try
                 {
-                    _context.Update(evento);
+                    Evento e = new Evento
+                    {
+                        IdEvento = evento.IdEvento,
+                        IdUsuario = evento.IdUsuario,
+                        TituloEvento = evento.TituloEvento,
+                        ContenidoEvento = evento.ContenidoEvento,
+                        EstatusEvento = evento.EstatusEvento,
+                        FechaEvento = DateTime.Now,
+                        Foto = evento.Foto
+                    };
+                    _context.Update(e);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

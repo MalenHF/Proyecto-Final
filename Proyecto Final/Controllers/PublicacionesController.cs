@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -14,10 +15,12 @@ namespace Proyecto_Final.Controllers
     public class PublicacionesController : Controller
     {
         private readonly ProyectoFinalContext _context;
+        private readonly UserManager<AplicationUser> _userManager;
 
-        public PublicacionesController(ProyectoFinalContext context)
+        public PublicacionesController(ProyectoFinalContext context, UserManager<AplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Publicaciones
@@ -70,10 +73,15 @@ namespace Proyecto_Final.Controllers
         {
             if (ModelState.IsValid)
             {
+                AplicationUser user = await _userManager.GetUserAsync(User);
+                if (user == null)
+                {
+                    return BadRequest();
+                }
                 Publicacione p = new Publicacione
                 {
                     PublicacionId = publicacione.PublicacionId,
-                    IdUsuario = publicacione.IdUsuario,
+                    IdUsuario = user.Id,
                     FotoPath = publicacione.FotoPath,
                     Titulo = publicacione.Titulo,
                     Estatus = publicacione.Estatus,

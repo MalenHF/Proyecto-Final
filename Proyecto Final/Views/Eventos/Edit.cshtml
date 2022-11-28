@@ -1,4 +1,5 @@
-﻿@model Proyecto_Final.Models.dbModels.Evento
+﻿@model Proyecto_Final.Models.DTO.EventoUpdateDTO
+
 
 @{
     ViewData["Title"] = "Edit";
@@ -28,11 +29,7 @@
                 <input asp-for="ContenidoEvento" class="form-control" />
                 <span asp-validation-for="ContenidoEvento" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="EstatusEvento" /> @Html.DisplayNameFor(model => model.EstatusEvento)
-                </label>
-            </div>
+            
             <div class="form-group">
                 <label asp-for="FechaEvento" class="control-label"></label>
                 <input asp-for="FechaEvento" class="form-control" />
