@@ -12,26 +12,20 @@
         <div class="me-3 columna1 mt-2 p-2 col-12 border border-dark text-black border-5 conteInfo">
             <h1 class="text-center conteInfo2"> Informacion del Servidor</h1>
             <ul class="text-center" style="list-style-type: none;">
-
-                
-                    
-                <li class="m-1">[Latino] Hooligans Force</li>
-                <li class="m-1"> IP: 192.169.89.114</li>
-                <li class="m-1">PUERTO: 26900</li>
-                <li class="m-1">DISCORD: https://discord.gg/fCQ6tPD</li>
-                <li class="m-1">Dificultad: Demente (INSANE)</li>
-                <li class="m-1">Experiencia: 100% (150% de 1 al 100).</li>
-                <li class="m-1">Loot chance: 100%</li>
-                <li class="m-1">
+                <li class="m-1 font-monospace"><b>[Latino] Hooligans Force</b></li>
+                <li class="m-1 font-monospace fw-bold"> IP: 192.169.89.114</li>
+                <li class="m-1 font-monospace fw-bold">PUERTO: 26900</li>
+                <li class="m-1 font-monospace fw-bold">DISCORD: https://discord.gg/fCQ6tPD</li>
+                <li class="m-1 font-monospace fw-bold">Dificultad: Demente (INSANE)</li>
+                <li class="m-1 font-monospace fw-bold">Experiencia: 100% (150% de 1 al 100).</li>
+                <li class="m-1 font-monospace fw-bold">Loot chance: 100%</li>
+                <li class="m-1 font-monospace fw-bold">
                     PVP los domingo con base protegida (el pvp es para eventos y pasar el rato)
                 </li>
-                <li class="m-1">Soltar al Morir: Nada</li>
-                <li class="m-1">Salud del Cubos de territorio: Infinita</li>
-                <li class="m-1">Números de Cubos de territorio: 9</li>
-                <li class="m-1">Espacio de Cubo de territorio: 41 x 41</li>
-                
-                
-
+                <li class="m-1 font-monospace fw-bold">Soltar al Morir: Nada</li>
+                <li class="m-1 font-monospace fw-bold">Salud del Cubos de territorio: Infinita</li>
+                <li class="m-1 font-monospace fw-bold">Números de Cubos de territorio: 9</li>
+                <li class="m-1 font-monospace fw-bold">Espacio de Cubo de territorio: 41 x 41</li>
             </ul>
         </div>
     </div>
@@ -40,18 +34,18 @@
         <!--Aqui va informacion extensa por agregar, lorem por lo pronto! :D-->
         <div class="columna1 col-sm-4">
             <p class="text-center">
-                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Modal" role="button"
+                <a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#Modal" role="button"
                    aria-expanded="false" aria-controls="collapseExample">
-                    <b>Tienda del Puntos</b>
+                    <b>Comandos del Servidor</b>
                 </a>
             </p>
 
         </div>
         <div class="columna2 col-sm-4 mb-0">
             <p class="text-center">
-                <a class="btn btn-dark mb-0" data-bs-toggle="modal" data-bs-target="#Modal2" role="button"
+                <a class="btn btn-danger mb-0" data-bs-toggle="modal" data-bs-target="#Modal2" role="button"
                    aria-expanded="false" aria-controls="collapseExample">
-                    <b>Comandos del Servidor</b>
+                    <b>Reglas del Servidor</b>
                 </a>
 
             </p>
@@ -60,106 +54,276 @@
             <p class="text-center">
                 <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Modal3" role="button"
                    aria-expanded="false" aria-controls="collapseExample">
-                    <b> Items de Donacion</b>
+                    <b>Items de Donacion</b>
                 </a>
             </p>
 
         </div>
     </div>
-    <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
+    <div class="modal fade" id="Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header me-auto ms-auto">
-                    <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">Tienda del Puntos</h1>
+            <div class="modal-content conteInfo">
+                <div class="modal-header mx-auto  border-dark border-2">
+                    <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">Comandos del Servidor</h1>
                 </div>
                 <div class="modal-body">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium animi dolorum laborum,
-                    saepe nesciunt ipsa eaque odit voluptatum veritatis, quo facilis reiciendis recusandae explicabo
-                    magnam! Itaque enim voluptas fugit asperiores!
+                    <table class="votTable">
+                        <tr class="voteTr2 cardVot text-white">
+                            <th class="voteTh text-center"><b>Comando</b></th>
+                            <th class="voteTh text-center"><b>Accion</b></th>
+                        </tr>
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                /
+                            </td>
+                            <td class="voteTd">
+                                X
+                            </td>
+                        </tr>                        
+                    </table>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <div class="modal-footer  border-dark border-2">
+                    <button type="button" class="btn btn-danger mx-auto" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="Modal2" tabindex="-1" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header me-auto ms-auto">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Comandos del Servidor</h1>
+    <div class="modal fade" id="Modal2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content conteInfo">
+                <div class="modal-header mx-auto  border-dark border-2">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Reglas del Servidor</h1>
                 </div>
                 <div class="modal-body">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos nihil obcaecati pariatur
-                    ratione quo incidunt? Possimus, doloremque debitis optio, harum minima sunt magnam magni
-                    similique, iusto sit repellat natus recusandae.
+                    <table class="votTable" >                        
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                Regla 1
+                            </td>
+                            <td class="voteTd">
+
+                            </td>
+                        </tr>
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                Regla 2
+                            </td>
+                            <td class="voteTd">
+
+                            </td>
+                        </tr>
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                Regla 3
+                            </td>
+                            <td class="voteTd">
+
+                            </td>
+                        </tr>
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                Regla 4
+                            </td>
+                            <td class="voteTd">
+
+                            </td>
+                        </tr>
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                Regla 5
+                            </td>
+                            <td class="voteTd">
+
+                            </td>
+                        </tr>
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                Regla 6
+                            </td>
+                            <td class="voteTd">
+
+                            </td>
+                        </tr>
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                Regla 7
+                            </td>
+                            <td class="voteTd">
+
+                            </td>
+                        </tr>
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                Regla 8
+                            </td>
+                            <td class="voteTd">
+
+                            </td>
+                        </tr>
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                Regla 9
+                            </td>
+                            <td class="voteTd">
+
+                            </td>
+                        </tr>
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                Regla 10
+                            </td>
+                            <td class="voteTd">
+
+                            </td>
+                        </tr>
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                Regla 11
+                            </td>
+                            <td class="voteTd">
+
+                            </td>
+                        </tr>
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                Regla 12
+                            </td>
+                            <td class="voteTd">
+
+                            </td>
+                        </tr>
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                Regla 13
+                            </td>
+                            <td class="voteTd">
+
+                            </td>
+                        </tr>
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                Regla 14
+                            </td>
+                            <td class="voteTd">
+
+                            </td>
+                        </tr>
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                Regla 15
+                            </td>
+                            <td class="voteTd">
+                                Queda Prohibido publicar de otros grupos/servidores sin permiso, sin embargo, es posible plublicar de otros servidores siempre que se tenga permiso de los Admins.
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <div class="modal-footer  border-dark border-2">
+                    <button type="button" class="btn btn-danger mx-auto" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="Modal3" tabindex="-1" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
+    <div class="modal fade" id="Modal3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header me-auto ms-auto">
+            <div class="modal-content conteInfo">
+                <div class="modal-header mx-auto border-dark border-2">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Items de Donacion</h1>
                 </div>
                 <div class="modal-body">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui eaque distinctio obcaecati est
-                    vero reprehenderit, iure eligendi harum, neque veritatis aliquid animi praesentium, libero dolor
-                    quam. Ipsa fugiat itaque velit.
+                    <table class="votTable" >
+                        <tr class="voteTr2 cardVot text-white">
+                            <th class="voteTh text-center"><b>Item</b></th>
+                            <th class="voteTh text-center"><b>Costo</b></th>
+                        </tr>
+                        <tr class="voteTr2">
+                            <td class="voteTd">
+                                • 2 Kit de Balas
+                            </td>
+                            <td class="voteTd text-center">
+                                30/20/10 Hcash
+                            </td>
+                        </tr>
+                        <tr class="voteTr2">
+                            <td class="voteTd">
+                                • Pistola de pintura
+                            </td>
+                            <td class="voteTd text-center">
+                                30/20/10 Hcash
+                            </td>
+                        </tr>
+                        <tr class="voteTr2">
+                            <td class="voteTd">
+                                • 2 Pack de Decorativos
+                            </td>
+                            <td class="voteTd text-center">
+                                30/20/10 Hcash
+                            </td>
+                        </tr>
+                        <tr class="voteTr2">
+                            <td class="voteTd">
+                                • 1000 Reparadores
+                            </td>
+                            <td class="voteTd text-center">
+                                30/20/10 Hcash
+                            </td>
+                        </tr>
+                        <tr class="voteTr2">
+                            <td class="voteTd">
+                                • S.O. Moto Legendaria
+                            </td>
+                            <td class="voteTd text-center">
+                                30/20/10 Hcash
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <div class="modal-footer border-dark border-2">
+                    <button type="button" class="btn btn-danger mx-auto" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
     </div>    
         <div class="container">
-            <div class="row">           
-                <div class="col-lg col-12 text-center card bg-secondary p-0 mx-1">
-                    <h5 class="card-header h4">
+            <div class="row">
+            <div class="col-lg col-12 text-center card cardInfo text-white p-0 mx-1 ">
+                <h5 class="card-header h4 border-white border-3">
                         <b>Mapas del Servidor!</b>
                     </h5>
                     <div class="card-body">
                         <h5 class="card-title">
                             <b>Mapa de localizacion!</b>                            
                         </h5>
-                        <a href="http://192.169.89.114:5402/static/index.html" class="btn btn-success "
+                    <a href="http://192.169.89.114:5402/static/index.html" class="btn btn-success border-dark  border border-2"
                            target="_blank">Localizacion</a>                    
                         <h5 class="card-title"><b>Mapa de Zonas de reinicio!</b></h5>
-                        <a href="http://192.169.89.114:5403/static/index.html" class="btn btn-success"
+                        <a href="http://192.169.89.114:5403/static/index.html" class="btn btn-success border-dark border border-2"
                            target="_blank">
                             Zonas de
                             reinicio
                         </a>
                     </div>
                 </div>
-            <div class="col-lg col-12 text-center card bg-secondary p-0 mx-1">
-                <h5 class="card-header h4"><b>Vota por el servidor!</b></h5>
+            <div class="col-lg col-12 text-center card cardInfo text-white p-0 mx-1 ">
+                <h5 class="card-header h4 border-white border-3"><b>Vota por el servidor!</b></h5>
                 <div class="card-body">
                     <h5 class="card-title"><b>Consigue recompensas al votar!</b></h5>
                     <p class="card-text">
                         Con cada votacion podras recibir recompensas in game!
                     </p>
-                    <a href="https://7daystodie-servers.com/server/90295/" class="btn btn-primary"
+                    <a href="https://7daystodie-servers.com/server/90295/" class="btn btn-primary border-dark border border-2"
                        target="_blank">Votar!</a>
                 </div>
                 </div>
-            <div class="col-lg col-12 text-center card bg-secondary p-0 mx-1">
-                    <h5 class="card-header h4"><b>Donaciones!</b></h5>
+            <div class="col-lg col-12 text-center card cardInfo text-white p-0 mx-1 ">
+                <h5 class="card-header h4 border-white border-3"><b>Donaciones!</b></h5>
                         <div class="card-body">
                             <h5 class="card-title"><b>Apoya a nuestro servidor!</b></h5>
                             <p class="card-text">
                                 Como agradecimiento por donar se te daran items especiales en el
                                 servidor!
                             </p>
-                            <a href="https://www.paypal.com/paypalme/pagaleamalenxd" class="btn btn-info"
+                    <a href="https://www.paypal.com/paypalme/pagaleamalenxd" class="btn btn-info border-dark border border-2"
                                target="_blank">Paypal</a>
                         </div>
                 </div>

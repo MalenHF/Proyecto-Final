@@ -190,6 +190,12 @@ body {
     -webkit-box-shadow: 0px 0px 15px 15px #fafafa;
     transition: all .7s ease-in-out;
 }
+.cardInfo {
+    background-image: url("../img/imgFondoVotacion.jpg");
+    box-shadow: 0px 0px 5px 5px #080808;
+    -webkit-box-shadow: 0px 0px 5px 5px #fafafa;
+
+}
 
 .conteVot {
     background-color: #D0D0D0;
@@ -235,7 +241,7 @@ imgLogin:hover {
     width: 100%;
 }
 
-.voteTd, .voteTh {
+.voteTd, .voteTh, .voteTd2, .voteTh2 {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
@@ -250,6 +256,14 @@ imgLogin:hover {
     color: #e6e0e0;
     background-image: url("../img/imgFondo3.jpg");
 }
+
+.voteTr2 {
+    color: #e6e0e0;
+    background-image: url("../img/imgFondoVotacion.jpg");
+}
+
+
+
 
 
 .tablevot {
@@ -312,3 +326,5 @@ a.sobre-link:hover {
 .sobre-link {
     color: rgba(170, 24, 24, 0.568);
 }
+
+
