@@ -60,8 +60,8 @@
 
         </div>
     </div>
-    <div class="modal fade" id="Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade" id="Modal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content conteInfo">
                 <div class="modal-header mx-auto  border-dark border-2">
                     <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">Comandos del Servidor</h1>
@@ -73,13 +73,185 @@
                             <th class="voteTh text-center"><b>Accion</b></th>
                         </tr>
                         <tr class="voteTr2">
-                            <td class="voteTd text-center">
-                                /
+                            <td class="voteTd text-center text-warning">
+                                <b>HC</b>
                             </td>
                             <td class="voteTd">
-                                X
+                                Al juegar en el servidor puedes ganar Hooligans Coins (HC)<br />
+                                Los HC te seran de utilidad para usar algunos comandos y comprar en la tienda de HC del servidor <br />
+                                • Ganas 10 HC por enemigo asesinado <br />
+                                • Ganas 25 por jugador asesinado(solo zonas pvp) <br />
+                                • Puedes obtener 500 al dia usando /daily <br />
+                                • Puedes obtener 500 al dia usando /daily2 [Premmy]<br />
                             </td>
-                        </tr>                        
+                        </tr>   
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                /com
+                            </td>
+                            <td class="voteTd">
+                                Te permite ver en chat una lista con la mayoria de los comandos activos del servidor.<br />
+                                • Algunos comandos especiales no apareceran en la lista del chat <br />
+                                • Revisa el mensaje al entrar al servidor, nuestro discord o el menu de comandos para verlos.<br />
+                            </td>
+                        </tr> 
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                /mc - /rmc
+                            </td>
+                            <td class="voteTd">
+                                Estos comandos son usados para viajar y regresar de el mercado del servidor<br />
+                                • /mc: Te teletransporte al mercado del mapa<br />
+                                <i class="text-info">• 30 minutos de tiempo de reutilización.</i><br />
+                                • /rcm: Te regresa al lugar donde usaste /mc siempre que no hayas salido del área del mercado.<br />
+                                • Comando /mc2 disponible sin tiempo de reutilización [Premmy]<br />
+                            </td>
+                        </tr> 
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                /loot
+                            </td>
+                            <td class="voteTd">
+                                Este comando te dará uno o mas de un item sorpresa al azar. <br/>
+                                <i class="text-info">• 60 Minutos de tiempo de reutilización <br/>
+                                • 30 Minutos de tiempo de reutilización [Premmy]"</i>
+                            </td>
+                        </tr> 
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                /daily
+                            </td>
+                            <td class="voteTd">
+                                Este comando te dará 500 Hooligans Coins al utilizarlo <br/>
+                                <i class="text-info">• 24 Horas de tiempo de reutilización</i> <br />
+                                <i class="text-warning">• 12 Horas de tiempo de reutilización [Premmy]"</i>
+                            </td>
+                        </tr> 
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                /sethome - /delhome
+                            </td>
+                            <td class="voteTd">
+                                Estos comandos permite guardar y borrar un punto de teletransporte  <br/>
+                                • /sethome X: Te permite guardar un punto de teletransporte con un nombre X (Máximo 2 puntos) <br/>
+                                <i class="text-info">• X seria el nombre que le des a tu base EJ: /sethome 1  o  /sethome casa<br />
+                                    • Este comando solo puede usarse dentro de un cubo de territorio personal o de un aliados
+                                </i> <br />
+                                • /delhome X: Te permite borrar un punto de teletransporte de nombre X <br/>
+                                <i class="text-info">• X seria el nombre que le des a tu base EJ: /delhome 1  o  /delhome casa</i>  <br />
+                                <i class="text-warning">• Máximo 4 puntos por jugador [Premmy]"</i>
+                            </td>
+                        </tr> 
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                /home - /ahome
+                            </td>
+                            <td class="voteTd">
+                                Estos comandos te permiten ver y usar los puntos de teletransporte guardados <br/>
+                                • /home: Te permite ver en chat los puntos de teletransporte guardados <br/>
+                                • /home X: Te permite teleportarte un punto guardado con un nombre X <br/>
+                                • /ahome X: Igual al home pero permite llevarte a los aliados cercanos <br/>
+                                <i class="text-info">• Costo 100 Hooligan Coins y 30 minutos de tiempo de reutilización.<br />
+                                    • X seria el nombre que le des a tu base EJ: /home 1 o /home casa
+                                </i><br />
+                                <i class="text-warning">• 15 Minutos de tiempo de reutilización [Premmy]"</i>
+                            </td>
+                        </tr> 
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                /tienda - buy
+                            </td>
+                            <td class="voteTd">
+                                Estos comando muestran y compran de la tienda de HC del servidor. <br/>
+                                • /tienda: Muestra en chat informacion de las categorias de la tienda. <br/>
+                                • /tienda *categoria*: Muestra en chat la lista de items en una caterogia <br/>
+                                <i class="text-info">• Ejemplo de uso: /tienda comida (muestra la lista de categoria comida)</i><br />
+                                • /buy # # Compras algún ítem de la tienda <br />
+                                <i class="text-info">• Primer # es el ID del ítem, segundo # es la cantidad que quieres comprar EJ: /buy 1  o  /buy 1 3"</i>
+                            </td>
+                        </tr> 
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                /atp
+                            </td>
+                            <td class="voteTd">
+                                Este comando te permite ver las id de tus aliados y teleportate hacia ellos <br/>
+                                • /atp: Te permite ver las ID de tus aliados conectados <br/>
+                                • /atp ID: Te permite teleportate a un aliado con la ID que pongas <br/>
+                                <i class="text-info">• Costo 300 Hooligan Coins y tiempo de reutilizaci ón 60 minutos<br/>
+                                • ID seria el numero de id de tu aliado o su nombre en el juego <br/>
+                                • 30 Minutos de tiempo de reutilización [Premmy]"</i>
+                            </td>
+                        </tr> 
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                /resu
+                            </td>
+                            <td class="voteTd">
+                                Este comando te permite regresar a tu ultimo punto de muerte <br/>
+                                <i class="text-info">
+                                • Costo 1000 Hooligan Coins y tiempo de reutilización 120 minutos <br />
+                                • 60 Minutos de tiempo de reutilización [Premmy]"</i>
+                            </td>
+                        </tr> 
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                /lobby
+                            </td>
+                            <td class="voteTd">
+                                Este comando te permite ir a la zona de teleportadores del lobby <br/>
+                                • Costo 200 Hooligan Coins y tiempo de reutilización 60 minutos <br/>
+                                • 30 Minutos de tiempo de reutilización [Premmy]"
+                            </td>
+                        </tr> 
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                /pm - /rm
+                            </td>
+                            <td class="voteTd">
+                                Estos comando te permiten mandar o contestar un mensaje personal <br/>
+                                • /pm nombre/ID ***: Te permite mandar un mensaje a una persona <br/>
+                                • nombre/ID corresponde al nombre o la id de la persona que recibira el mensaje <br/>
+                                • /rm ***: Te permite contestar a la ultima persona que te mando un pm <br/>
+                                • *** Corresponde al mensaje a enviar o responder"
+                            </td>
+                        </tr> 
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                /votar - /vot
+                            </td>
+                            <td class="voteTd">
+                                Estos comandos son usados en el sistema de votacion del servidor <br/>
+                                • /votar: Da informacion sobre el sistema de votacion del servidor <br/>
+                                • /vot Permite pedir una recompensa random luego de votar por el servidor"
+                            </td>
+                        </tr> 
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                /cazar - /ca - cz
+                            </td>
+                            <td class="voteTd">
+                                Estos comandos ayudan a la convocacion y caza de animales <br/>
+                                • /cazar: Da informacion sobre el sistema de caza <br/>
+                                • /ca: Convoca animales inofensivos para su caza <br/>
+                                • Tiempo de reutilización 60 minutos  <br/>
+                                • /cz: Convoca animales peligrosos para su caza <br/>
+                                • Tiempo de reutilización 120 minutos <br/>
+                                • Tiempos de reutilización 30 y 60 minutos [Premmy]"
+                            </td>
+                        </tr> 
+                        <tr class="voteTr2">
+                            <td class="voteTd text-center">
+                                /bang - /party - debuff
+                            </td>
+                            <td class="voteTd">
+                                Buffs especiales para diversion <br/>
+                                •/bang: Cambia los sonidos del juego<br/>
+                                •/party: Crea una efecto de fiesta al matar enemigos<br/>
+                                • Party elimina la xp compartida en grupo y los buffs de xp <br/> 
+                                •/debuff: Remueve las buff de /bang y /party"
+                            </td>
+                        </tr>
                     </table>
                 </div>
                 <div class="modal-footer  border-dark border-2">
@@ -101,7 +273,7 @@
                                 Regla 1
                             </td>
                             <td class="voteTd">
-
+                                Se debe respetar a todos los jugadores, no se tolerará racismo o prejuicios de forma seria, no ofender a los Administradores del servidor.
                             </td>
                         </tr>
                         <tr class="voteTr2">
@@ -109,7 +281,7 @@
                                 Regla 2
                             </td>
                             <td class="voteTd">
-
+                                Queda ESTRICTAMENTE PROHIBIDO abusar de bug y hacer exploits de mecánicas del juego o servidor.
                             </td>
                         </tr>
                         <tr class="voteTr2">
@@ -117,7 +289,7 @@
                                 Regla 3
                             </td>
                             <td class="voteTd">
-
+                                Está Prohibido robar en el servidor, persona sorprendida robando será sancionada, sin embargo, NO se revisarán registros en caso de robos sencillos por lo tanto  toda persona debe tener bloqueada la entrada de su base y sus vehículos.
                             </td>
                         </tr>
                         <tr class="voteTr2">
@@ -125,7 +297,7 @@
                                 Regla 4
                             </td>
                             <td class="voteTd">
-
+                                Está Prohibido Robar el loot o sabotear a otro jugador que se encuentre haciendo una mision en el lugar y de igual forma NO se puede ahuyentar a una persona para hacer una mision si el llego antes.
                             </td>
                         </tr>
                         <tr class="voteTr2">
@@ -133,7 +305,7 @@
                                 Regla 5
                             </td>
                             <td class="voteTd">
-
+                                Está Prohibido destruir loot de forma intencional o maliciosa (EJ. Destruir cajas fuertes o libreros en zonas de loot).
                             </td>
                         </tr>
                         <tr class="voteTr2">
@@ -141,7 +313,7 @@
                                 Regla 6
                             </td>
                             <td class="voteTd">
-
+                                Queda ESTRICTAMENTE PROHIBIDO el sabotaje a las construcciones de otros players, así como el uso de zombies para dañarlas. *Cuenta como sabotaje el mejorar bloques o destruir en el alrededor de la base de otro jugador sin su permiso, incluso si es para minar*
                             </td>
                         </tr>
                         <tr class="voteTr2">
@@ -149,7 +321,7 @@
                                 Regla 7
                             </td>
                             <td class="voteTd">
-
+                                Está Prohibido pasar la luna roja en lugares con protección a zombies o indestructibles (EJ. Mercado, eventos, etc), hacer esto contara como abuso y pueden ser sancionados.
                             </td>
                         </tr>
                         <tr class="voteTr2">
@@ -157,7 +329,7 @@
                                 Regla 8
                             </td>
                             <td class="voteTd">
-
+                                Esta Prohibido  interferir con las peleas contra jefes de otro jugador sin su permiso. •Los jefes deambulantes son de quien lo encuentra y pelea con el primero •Si el dueño muere o abandona al jefe este estara libre para otros jugadores\n• Los jefes de misiones pertenecen de quien llego primero a la mision
                             </td>
                         </tr>
                         <tr class="voteTr2">
@@ -165,7 +337,7 @@
                                 Regla 9
                             </td>
                             <td class="voteTd">
-
+                                Bases con claims expirados se consideran como abandonadas y no se considerara un robo el hecho de que otro player tome algo de ellas, sin embargo estas mismas NO deben ser destruidas.
                             </td>
                         </tr>
                         <tr class="voteTr2">
@@ -173,7 +345,7 @@
                                 Regla 10
                             </td>
                             <td class="voteTd">
-
+                                Esta Prohibido poner tu cubo de territorio en la base de otra persona a menos que se encuentre abandonada, en este caso, solo tendren permitido poner el cubo si la persona tiene intención de usar la base para vivir en ella.
                             </td>
                         </tr>
                         <tr class="voteTr2">
@@ -181,7 +353,7 @@
                                 Regla 11
                             </td>
                             <td class="voteTd">
-
+                                Queda Prohibido usar skin de los zombies del servidor, o usar skins a las que le falte la cabeza o extremidades.
                             </td>
                         </tr>
                         <tr class="voteTr2">
@@ -189,7 +361,7 @@
                                 Regla 12
                             </td>
                             <td class="voteTd">
-
+                                Los jugadores tienen Permitido usar skins speciales en el servidor siempre que cumplan con la regla 13, sin embargo, estas NO podran ser usadas en eventos
                             </td>
                         </tr>
                         <tr class="voteTr2">
@@ -197,7 +369,7 @@
                                 Regla 13
                             </td>
                             <td class="voteTd">
-
+                                Los jugadores deberán limitar la cantidad de árboles, parcelas y máquinas de trabajo (forjas, cementeras, etc.), de no hacerlo, podrán ser acreedores a que su claim sea removido sin previo aviso, revisa la sección de Limites de Construcción para más información.
                             </td>
                         </tr>
                         <tr class="voteTr2">
@@ -205,7 +377,7 @@
                                 Regla 14
                             </td>
                             <td class="voteTd">
-
+                                Está Permitido usar una construcción de juego(prefab) como base siempre que estos no sean prefab especiales, bibliotecas o un lugar de looteo muy grande. 
                             </td>
                         </tr>
                         <tr class="voteTr2">
